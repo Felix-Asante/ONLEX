@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLEX | Admin Dashboard</title>
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <link rel="stylesheet" href="/styles/adminStyle.css">
+</head>
+
+<body>
+    <header id="admin-header" class="darkbg">
+        <div class="admin-container">
+            <nav class="admin-header-navs">
+                <div class="onlex-logo simple-flex">
+                    <img src="/img/favicon-white.png" width="50px" height="50px" alt="onlex-logo" class="white-text">
+                    <h2 class="green-text">ONLEX</h2>
+                </div>
+                <div class="hamburger">
+                    <span class="hamburger-menu"></span>
+                    <span class="hamburger-menu"></span>
+                    <span class="hamburger-menu"></span>
+                </div>
+                <div class="header-buttons">
+                    <a href="/Admin/" class="btn annonce-bell btn-pink"><i class="far fa-bell"></i> Annonce</a>
+                    <a href="" class="btn concours-bell btn-red" style="margin-right: 10px;"><i class="fas fa-graduation-cap"></i> Concours</a>
+                    <a href="" class="btn btn-green"><i class="fas fa-cog"></i> Parametre</a>
+                </div>
+                <div id="active-user" class="simple-flex">
+                   
+                        <a href="" class="white-text">Déconnexion <i class="fas fa-power-off"></i></a>
+                   
+                    <!-- <img src="../icons/user.png" alt=""> -->
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="admin-area bg-lightGray">
+        <aside id="admin-area-navs" class="whitebg">
+            <nav class="navigations dark-color admin-container">
+                <a href="/Admin/"><i class="fas fa-home"></i> Dashboard</a>
+                <div id="question-bank">
+                    <a href="" id="question"><span class="material-icons">
+                        quiz
+                        </span> Question Bank <i class="fas fa-chevron-right"></i></a>
+                    <ul id="question-options">
+                        <li><a href="">Subject</a></li>
+                        <li><a href="">Questions</a></li>
+                    </ul>
+
+                </div>
+                <a href=""><span class="material-icons">
+                    rtt
+                    </span> Create Exams</a>
+                <a href=""><span class="material-icons">
+                    people_alt
+                    </span> Candidates</a>
+                <div id="results">
+                    <a href="" id="result"><span class="material-icons">assignment</span>Results <i class="fas fa-chevron-right"></i></a>
+                    <ul id="result-options">
+                        <li><a href="">Candidate Results</a></li>
+                        <li><a href="">Exams Analytics</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div id="communication">
+                    <a href="" id="communicate"><span class="material-icons">
+                        textsms
+                        </span> Communication <i class="fas fa-chevron-right"></i></a>
+                    <ul id="communication-options">
+                        <li><a href="">Send E-mails</a></li>
+                        <li><a href="/Admin/annonce">Annonce</a></li>
+                        <li><a href="/Admin/concours">Concours</a></li>
+                    </ul>
+                </div>
+                <a href="" class="btn redbg">Support</a>
+            </nav>
+        </aside>
+        <%if(test){%>
+        <section id="exams-details-area">
+            <div id="logo">
+                <img src="/img/favicon.png" width="50px" height="50px" alt="onlex-logo" class="white-text">
+                <div class="system-name">
+                    <h3>ONLEX</h3>
+                    <p>The smart system</p>
+                </div>
+            </div>
+            <div class="area-details">
+                <div id="registered-users" class="whitebg cards">
+                    <h2><%=nbcandidat%></h2>
+                    <p>REGISTERED USERS</p>
+                </div>
+
+                <div id="number-of-questions" class="whitebg cards">
+                    <h2 class="dark-color">50</h2>
+                    <p>NUMBER OF QUESTIONS</p>
+                </div>
+                <div id="new-registration" class="whitebg">
+                    <p class="greenbg">New Registration</p>
+
+                    <%if(registration){%>
+                    <ul id="registration">
+                        <% for(let i=0;i<registration.length;i++){%>
+                        <li style="display: flex;"><a href="/Admin/afficheregistration?src=<%=registration[i].idInscription%>" title="Afficher la candidature"><%=registration[i].CNE%> : <%=registration[i].typeDeConcours%></a>
+                             <a  href="/Admin/validregistration?src=<%=registration[i].idInscription%>" class="greenbg btn-sm"> valider</a>
+                             <a href="/Admin/rejectregistration?src=<%=registration[i].idInscription%>" class="redbg btn-sm"> reject</a></li>    
+                        <%}%>
+                    </ul>
+                    <%}%>
+
+                </div>
+                <div id="total-annonce" class="whitebg cards">
+                    <h2><%=nbannonce%></h2>
+                    <p>TOTAL ANNONCE</p>
+                </div>
+                <div id="exams-created" class="whitebg cards">
+                    <h2>5</h2>
+                    <p>EXAMS CREATED</p>
+                </div>
+                <div class="greenbg green-card"></div>
+                <div class="pinkbg"></div>
+            </div>
+        </section>
+            <%} else{%>
+               <%-include ("./includes/afficheAnnonce")%>
+                <%}%>
+    </main>
+    <!-- <footer id="home-footer">
+        <div id="contact-info">
+            <h3>Nos Contacts</h3>
+            <p>E-mail: developpers@onlex.com</p>
+            <p>Tel: 000 00 0000</p>
+            <p class="copyright">&copy; Copyright. All right reserved.</p>
+        </div>
+    </footer> -->
+
+    <div class="create-annonce" id="">
+       
+        <div class="form-wrapper">
+            <i class="fas fa-times close"></i>
+            <form action="/Admin/createannonce" method="POST">
+                <div class="annonce-titre">
+                    <label for="">Titre: </label>
+                    <input type="text" name="titre" id="titre" placeholder="Titre" required>
+                </div>
+                <div class="annonce-description">
+                    <label for="">description: </label>
+                    <textarea name="description" id="description" required></textarea>
+                </div>
+                <input type="submit" value="VALIDER" id="submit">
+            </form>
+        </div>
+    </div>
+    <!-- ! CONCOUR FORM -->
+    <div class="create-annonce create-concour" id="">
+       
+        <div class="form-wrapper concour-form">
+            <i class="fas fa-times close close-concour"></i>
+            <form action="/Admin/createconcours" method="POST">
+                <div class="annonce-titre">
+                    <label for="">Titre: </label>
+                    <input type="text" name="titre" id="titre" placeholder="Titre" required>
+                </div>
+                <div class="annonce-titre">
+                    <label for="">Ecole: </label>
+                    <input type="text" name="ecole" id="titre" placeholder="Ecole" required>
+                </div>
+                <div class="annonce-description concour-description">
+                    <label for="">description: </label>
+                    <textarea name="description" id="description" required></textarea>
+                </div>
+                <div class="date-debut">
+                    <label for=""> Date debut</label>
+                    <input type="date" name="dateDepot" id="">
+                </div>
+                <div class="date-debut">
+                    <label for="">Date fin</label>
+                    <input type="date" name="dateFin" id="">
+                </div>
+                <input type="submit" class="greenbg" value="VALIDER" id="submit">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    const communication = document.getElementById("communicate")
+    const communicationOption = document.getElementById("communication-options");
+
+    const result = document.getElementById("result")
+    const resultOption = document.getElementById("result-options");
+   
+    const question = document.getElementById("question")
+    const questionOption = document.getElementById("question-options");
+    
+    communication.addEventListener("click",(e)=>{
+        e.preventDefault()
+
+        communicationOption.classList.toggle("active")
+
+        if(!communicationOption.classList.contains("active")){
+
+            // communicationOption.classList.add("active")
+            communicationOption.style.display="block"
+
+        }
+        
+        if(communicationOption.classList.contains("active")){
+            communicationOption.style.display="block"
+        }
+        else 
+        communicationOption.style.display="none"
+
+    })
+
+    result.addEventListener("click",(e)=>{
+        e.preventDefault()
+        resultOption.classList.toggle("active")
+        
+        if(resultOption.classList.contains("active")){
+           resultOption.style.display="block"
+        }
+        else 
+        resultOption.style.display="none"
+
+    })
+
+    question.addEventListener("click",(e)=>{
+        e.preventDefault()
+        questionOption.classList.toggle("active")
+        
+        if(questionOption.classList.contains("active")){
+           questionOption.style.display="block"
+        }
+        else 
+        questionOption.style.display="none"
+
+    })
+
+    //annonce model
+ const annonceBell = document.querySelector(".annonce-bell")
+ const annonce = document.querySelector(".create-annonce")
+ const concourBell = document.querySelector(".concours-bell")
+ const closeConcourButton = document.querySelector(".close-concour")
+const concour = document.querySelector(".create-concour")
+const closeButton = document.querySelector(".close")
+const submitButton = document.getElementById("submit");
+
+ annonceBell.addEventListener("click",(e)=>{
+     e.preventDefault()
+     annonce.id="create-annonce"
+     const concourForm=document.querySelector(".concour-form") 
+        document.querySelector(".form-wrapper").style.display="block";
+ })
+
+ closeButton.addEventListener("click",()=>{
+    annonce.id=""
+    document.querySelector(".form-wrapper").style.display="none";
+   
+
+ })
+
+ closeConcourButton.addEventListener("click",function(){
+    concour.id="";
+    document.querySelector(".concour-form").style.display="none";
+    
+ })
+
+submitButton.addEventListener("click",()=>{
+    document.getElementById("titre").value=" "
+    document.getElementById("description").value=" "
+})
+
+concourBell.addEventListener("click",function(e){
+    e.preventDefault();
+    concour.id="update-concour";
+    document.querySelector(".concour-form").style.display="block";
+})
+ 
+</script>
+</html>

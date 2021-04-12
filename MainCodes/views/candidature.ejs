@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/ONLEX-LOGO.png">
+    <title>ONLEX</title>
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/registration.css">
+</head>
+<script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<!-- {{!-- File encoding --}} -->
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<!-- {{!-- Image preview --}} -->
+<script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<!-- {{!-- Image Resize --}} -->
+<script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script defer src="/fileUpload.js"></script>
+<!-- File size validation -->
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+<body>
+    <header id="home-page"class="candidature">
+        <div class="home-container">
+            <div class="navs-wrapper">
+                <div class="brand-logo">
+                    <img src="/img/favicon.png" alt="onlex logo">
+                    <h1 class="brand-name dark-gray-text">
+                        ONLEX
+                    </h1>
+                </div>
+                <nav id="navigation">
+                    <ul class="nav-link">
+                        <a href="/" class="dark-gray-text">ACCUEIL</a>
+                        <a href="#" class="dark-gray-text">CANDIDATURE</a>
+                        
+                    </ul>
+                    
+             </div>
+        </div>
+    </header>
+     <p class="application-note dark-gray-text">
+         Veuillez lire attentivement et remmplir tous les champs applicables - cela nous permettra de commence le proccessus de candidature. Ce formulaire
+         ne vous pendra que quelque minutes a remplir et vous n'aurez besoin que de quelques informations
+         de base sur votre formation anterieure, une fois que vous avex postule et que votre candidature
+         a ete validee, nous vous contacterons avec de details concernant votre candidature.
+     </p>
+     <div id="progress-tracker">
+            <div class="progress-line">
+                <div class="progress bg-orange" id="progress"></div>
+            </div>
+         <div class="icons">
+             <div>
+                    <div class="user bg-orange">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p>About you</p>
+             </div>
+          <div>
+         <div class="user orange-border education">
+            <i class="fas fa-graduation-cap"></i>
+         </div>
+         <p>Education Background</p>
+        </div>
+
+        <div>
+         <div class="user orange-border face">
+            <i class="far fa-smile"></i>
+        </div>
+        <p>Face Recognition</p>
+        </div>
+
+        <div>
+         <div class="user orange-border">
+            <i class="fas fa-check"></i>
+         </div>
+         <p>Success</p>
+        </div>
+        </div>
+     </div>
+     <main id="candidature-form-wrapper">
+        <p>Remarque:les champs marqués d'un <span class="orange-text">*</span>sont obligatoires.</p>
+        <form action="/membre/candidature" method="POST" enctype="multipart/form-data">
+            <input type="text" name="xml_data_map_failureCode:<%=idConcour%>" id="" value="" hidden>
+            <div id="about-you">
+                <p class="bg-green">INFORMATIONS PERSONNELLES</p>
+                            <div id="personal-informations">
+                                    <div class="name">
+                                        <label for="nom">Nom <span class="orange-text">*</span></label>
+                                        <input type="text" name="nom" id="nom">
+                                    </div>
+                                    <div class="prenom">
+                                        <label for="prenom">Prénom <span class="orange-text">*</span></label>
+                                        <input type="text" name="prenom" id="prenom">
+                                    </div>
+                                    <div class="gender">
+                                        <label for="gender">Gender <span class="orange-text">*</span></label>
+                                        <div class="gender-pick">
+                                            <div class="femme">
+                                                <input type="radio" name="gender" id="gender" value="Femme">
+                                                <span>Femme</span>
+                                                <div class="homme" id="gender-fake-select"></div>
+                                            </div>
+                                            <div class="man">
+                                                <input type="radio" name="gender" id="homme" value="Homme" selected>
+                                                <span>Homme</span>
+                                                <div class="homme" id="gender-fake-select"></div>
+                    
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                    
+                                    <div class="DOB">
+                                        <label for="dateNaissance">Date de naissance</label>
+                                        <input type="date" name="dateNaissance" id="dateNaissance">
+                                    </div>
+                            </div>
+            
+                <div id="contact">
+                    <p class="bg-green">CONTACT INFORMATION</p>
+                    <div class="contact-informations">
+
+                            <div class="email">
+                                <label for="email">Email <span class="orange-text">*</span></label>
+                                <input type="email" name="email" id="email">
+                            </div>
+                            <div class="confirm-email">
+                                <label for="emailConfirm">Confirm Email<span class="orange-text">*</span></label>
+                                <input type="email" name="confirmemail" id="emailConfirm">
+                                <p id="message">E-mail doesn't match</p>
+                            </div>
+                            <div class="telephone">
+                                <label for="telephone">Telephone<span class="orange-text">*</span></label>
+                                <input type="tel" name="tel" id="telephone">
+                            </div>
+                            <div class="address">
+                                <label for="adresse">Adresse<span class="orange-text">*</span></label>
+                                <input type="text" name="adresse" id="adresse">
+                            </div>
+                            <div class="city">
+                                <label for="city">City<span class="orange-text">*</span></label>
+                                <input type="text" name="city" id="city">
+                            </div>
+                            <div class="postal-code">
+                                <label for="postalCode">Postal Code</label>
+                                <input type="text" name="postalCode" id="">
+                            </div>
+                        <button id="next-2" class="btn bg-dark">SUIVANT</button>
+                    </div>
+                </div>
+            </div>
+            
+                <!-- formation -->
+
+                <div id="education">
+                    <p class="bg-green">FORMATION</p>
+                    <div id="education-informations">
+                            <div class="ecole">
+                                <label for="nom">Ecole <span class="orange-text">*</span></label>
+                                <input type="text" name="ecole" id="ecole">
+                            </div>
+                            <div class="region">
+                                <label for="region">Region <span class="orange-text">*</span></label>
+                                <input type="text" name="region" id="region">
+                            </div>
+                            <div class="diplome">
+                                <label for="diplome">Diplome recent<span class="orange-text">*</span></label>
+                                <!-- <input type="text" name="diplome" id="diplome"> -->
+                                <select name="diplome" id="">
+                                    <option value="DUT">DUT</option>
+                                    <option value="DTS">DTS</option>
+                                    <option value="BTS">BTS</option>
+                                    <option value="Licence">Licence</option>
+                                </select>
+                            </div>
+            
+                            <div class="anne">
+                                <label for="annee">Annee de completion <span class="orange-text">*</span> </label>
+                                <input type="date" name="annee" id="annee">
+                            </div>
+                            <div id="cne">
+                                <label for="diplome">CNE<span class="orange-text">*</span></label>
+                                <input type="text" name="cne" id="">
+                            </div>
+                            <div class="type-de-concour">
+                                <label for="diplome">Type de concours<span class="orange-text">*</span></label>
+                                <input type="text" name="concours" id="">
+                            </div>
+                            <div class="upload-diplome">
+                                <label for="diplome">Upload Diplome / Bac<span class="orange-text">*</span></label>
+                                <input type="file" name="filepond" id="fileUpload" class="filepond" required multiple >
+                            </div>
+                            <button id="prev-1" class="btn bg-dark">PRECEDENT</button>
+                            <button id="next-3" class="btn bg-dark">SUIVANT</button>
+                        
+                    </div>
+                </div>
+                <div id="face-recognition">
+                    <p class="bg-green">FACE RECOGNITION</p>
+                    <div class="face-capture">
+                        <p>Face Capture <span class="orange-text">*</span></p>
+                        <p class="orange-text" id="face-reco-text">Please wait whiles the system detects your face</p>
+                        <video poster="/img/face-emoji.png" id= "facevideo" width="300px" height="200px" autoplay  muted>
+                        <div class="capture-links">
+                            <a href="" class="bg-orange">CAPTURE</a>
+                            <a href="" class="bg-hot-pink">SAVE</a>
+                        </div>
+                    </div>
+                    <div class="links">
+                        <button id="prev-2" class="btn bg-orange">PRECEDENT</button>
+
+                        <input type="submit" value="COMPLETE" id="submit" class="bg-dark" style="display: none;">
+                    </div>
+                </div>
+        </form>
+
+    </main>
+    
+    <footer id="home-footer">
+        <div id="contact-info">
+            <h3>Nos Contacts</h3>
+            <p>E-mail: developpers@onlex.com</p>
+            <p>Tel: 000 00 0000</p>
+            <p class="copyright">&copy; Copyright. All right reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/owlcarousel/owl.carousel.min.js"></script>
+    <script defer src="registration.js"></script>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="faceDetection.js"></script>
+</body>
+<style>
+    .face-capture{
+        position: relative;
+    }
+     canvas {
+      position: absolute;
+      z-index: 300;
+      top: 50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+</style>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/ONLEX-LOGO.png">
+    <title>ONLEX</title>
+    <link rel="stylesheet" href="/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <header id="home-page">
+        <div class="home-container">
+            <div class="navs-wrapper">
+                <div class="brand-logo">
+                    <img src="/img/favicon.png" alt="onlex logo">
+                    <h1 class="brand-name dark-gray-text">
+                        ONLEX
+                    </h1>
+                </div>
+                <nav id="navigation">
+                    <ul class="nav-link">
+                        <a href="#" class="dark-gray-text">ACCUEIL</a>
+                        <a href="#annonce-list" class="dark-gray-text">ANNONCES</a>
+                        <a href="#annonce-list" class="dark-gray-text">CONCOURS</a>
+                    </ul>
+                    <a href="/membre/login" class="btn bg-orange">CONNECTER</a>
+                </nav>
+             </div>
+                <div id="home-page-showcase-content">
+                    <div class="home-text">
+                        <h2 class="text">Service d'examen en ligne fiable, Sécurisé et Efficace</h2>
+                    </div>
+                    <div id="search-for-concours">
+                        <form action="">
+                            <h3>RECHERCHER UN CONCOURS</h3>
+                            <div  id="ecole">
+                                <input type="text" name="ecole" id="" class="ecole" placeholder="Nom d'ecole" list="list">
+                                <datalist id="list">
+                                   <option value="EST"></option>
+                                   <option value="ENSA"></option>
+                                   <option value="ENCG"></option>
+                                   <option value="FAC"></option>
+                                   <option value="FST"></option>
+                                   <option value="ISPTI"></option>
+                                   <option value="ENSAM"></option>
+                                </datalist>
+                            </div>
+                            <div class="filiere">
+                                <input type="text" name="filiere" id="filiere" placeholder="Filiere">
+                            </div>
+                            <input type="submit" value="RECHERCHER" class="search btn bg-hot-pink">
+
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    <section id="info-annonce">
+        <div class="annonce" id="annonce-list">
+            <h3 class="annoce">CONCOURS</h3>
+            <%if(concours){%>
+            <ul>
+                <% for(var i=0; i<concours.length;i++) {%>
+              <li><a href="/admin/afficheconcours/?id=<%=concours[i].idConcours%>"><%=concours[i].titre%> </a></li> 
+               
+               <% } %>
+            </ul>
+            <%}%>
+        </div>
+        <div class="annonce" id="annonce-list">
+            <h3>Annonce</h3>
+            
+            <%if(annonce){%>
+            <ul>
+                <% for(var i=0; i<annonce.length;i++) {%>
+              <li><a href="/admin/afficheannonce/?id=<%=annonce[i].idAnnonce%>"><%=annonce[i].titre%> </a></li> 
+               
+               <% } %>
+            </ul>
+                <%}%>
+        </div>
+    </section>
+
+    <div class="section" id="ecole-paternaire">
+        <h3 class="dark-gray-text">Ecoles Partenaires</h3>
+        <div class="owl-carousel ecoles">
+            <img src="/img/est.jpeg" alt="">
+            <img src="/img/universiaplois.jpeg" alt="">
+            <img src="/img/FST-Settat.png" alt="">
+            <img src="/img/FST Marrakech.png" alt="">
+        </div>
+    </div>
+    <footer id="home-footer">
+        <div id="contact-info">
+            <h3>Nos Contacts</h3>
+            <p>E-mail: developpers@onlex.com</p>
+            <p>Tel: 000 00 0000</p>
+            <p class="copyright">&copy; Copyright. All right reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/owlcarousel/owl.carousel.min.js"></script>
+    <script src="carousel.js"></script>
+</body>
+</html>

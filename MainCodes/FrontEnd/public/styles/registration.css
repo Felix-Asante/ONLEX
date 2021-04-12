@@ -1,0 +1,677 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f0f4f5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.warning {
+  color: #ff4a63;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn {
+  padding: 12px;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+.bg-green {
+  background: #63d694;
+}
+
+.dark-gray-text {
+  color: #606c72;
+}
+
+.bg-orange {
+  background: #ff4a00;
+  color: #fff;
+}
+
+.bg-hot-pink {
+  background: #ff4a63;
+}
+
+.bg-dark {
+  background: #606c72;
+}
+
+.orange-border {
+  border: 1px solid #ff4a00;
+}
+
+.orange-text {
+  color: #ff4a00;
+}
+
+.green-text {
+  color: #63d694;
+}
+
+.hot-pink-text {
+  color: #ff4a63;
+}
+
+#message {
+  color: #ff4a63;
+  font-size: .7rem;
+  display: none;
+}
+
+.btn-sm {
+  padding: 2px 6px;
+}
+
+.border-sm {
+  border-radius: 6px;
+}
+
+.white-text {
+  color: #fff;
+}
+
+#home-page {
+  width: 100vw;
+}
+
+#home-page .home-container {
+  height: 100%;
+}
+
+#home-page .home-container .navs-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 15px #606c72;
+          box-shadow: 1px 1px 15px #606c72;
+  height: 60px;
+  width: 100%;
+  padding: 2rem 3rem;
+  z-index: 15;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    height: 100px;
+  }
+}
+
+#home-page .home-container .navs-wrapper .brand-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper .brand-logo {
+    height: 20%;
+  }
+}
+
+#home-page .home-container .navs-wrapper .brand-logo img {
+  width: 30px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper .brand-logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+#home-page .home-container .navs-wrapper .brand-logo h1 {
+  font-size: 20px;
+}
+
+#home-page .home-container .navs-wrapper #navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper #navigation {
+    margin-top: 1.3rem;
+  }
+}
+
+#home-page .home-container .navs-wrapper #navigation ul a {
+  padding-right: 0.6rem;
+}
+
+@media screen and (max-width: 500px) {
+  #home-page .home-container .navs-wrapper #navigation ul a {
+    padding: 0 0.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content {
+  padding: 0 3rem;
+  height: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container #home-page-showcase-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content .home-text {
+  width: 350px;
+}
+
+@media screen and (max-width: 500px) {
+  #home-page .home-container #home-page-showcase-content .home-text {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content .home-text h2 {
+  font-weight: 100;
+  font-size: 2.2rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container #home-page-showcase-content .home-text h2 {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+  }
+}
+
+#candidature-form-wrapper form #about-you #personal-informations, #candidature-form-wrapper form #about-you #contact .contact-informations, #candidature-form-wrapper form #education #education-informations {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+input,
+select {
+  padding: 12px 15px;
+  border: 1px solid #ff4a00;
+  outline: none;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button {
+  color: #fff;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+main,
+.application-note {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.application-note {
+  text-align: justify;
+  margin: 3rem auto;
+}
+
+.progress-line {
+  width: 58%;
+  height: 5px;
+  background: #d2d3d3;
+  position: absolute;
+  top: 41.2%;
+  left: 250px;
+  z-index: 100;
+}
+
+.progress-line #progress {
+  width: 0%;
+  height: 100%;
+  -webkit-transition: width 0.4s ease-in;
+  transition: width 0.4s ease-in;
+}
+
+#progress-tracker {
+  max-width: 1150px;
+  margin: 2rem auto;
+}
+
+#progress-tracker .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: relative;
+  width: 80%;
+  margin: auto;
+  z-index: 100;
+}
+
+#progress-tracker .icons > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 380;
+}
+
+#progress-tracker .icons > div .user {
+  z-index: 60;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: #606c72;
+  text-align: center;
+  position: relative;
+  z-index: 380;
+  background: #f0f4f5;
+}
+
+#progress-tracker .icons > div .user i {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 380;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#progress-tracker .icons > div .bg-orange {
+  background: #ff4a00;
+  color: #fff;
+}
+
+#candidature-form-wrapper form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#candidature-form-wrapper form #about-you {
+  margin-top: 1rem;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 1;
+}
+
+#candidature-form-wrapper form #about-you #personal-informations .gender {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 0.8rem;
+}
+
+#candidature-form-wrapper form #about-you #personal-informations .gender label {
+  display: inline;
+}
+
+#candidature-form-wrapper form #about-you #personal-informations .gender input {
+  width: 50px;
+  position: relative;
+}
+
+#candidature-form-wrapper form #about-you #personal-informations .gender .gender-pick {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#candidature-form-wrapper form #about-you #personal-informations .gender .gender-pick > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#candidature-form-wrapper form #about-you #personal-informations .gender .gender-pick > div input {
+  margin-top: 0.3rem;
+  position: relative;
+}
+
+#candidature-form-wrapper form #about-you #contact {
+  min-width: 100%;
+}
+
+#candidature-form-wrapper form #education {
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+#candidature-form-wrapper form #education #education-informations #next-3 {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+#candidature-form-wrapper form #education #education-informations #prev-1 {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  background-color: #ff4a00;
+}
+
+#candidature-form-wrapper form #education #education-informations .upload-diplome {
+  border: 1px solid #ff4a00;
+  padding: 1rem;
+}
+
+#candidature-form-wrapper form #face-recognition {
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+#candidature-form-wrapper form #face-recognition .face-capture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem 0;
+}
+
+#candidature-form-wrapper form #face-recognition .face-capture video {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ff4a00;
+  margin: 0.8rem 0;
+}
+
+#candidature-form-wrapper form #face-recognition .face-capture .capture-links {
+  margin: 0.8rem 0;
+}
+
+#candidature-form-wrapper form #face-recognition .face-capture .capture-links a {
+  padding: 0.5rem;
+  width: 120px;
+  border-radius: 4px;
+  text-align: center;
+  display: inline;
+}
+
+#candidature-form-wrapper form .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#candidature-form-wrapper form .links input[type="submit"], #candidature-form-wrapper form .links #prev-2 {
+  border: none;
+  width: 30%;
+  text-align: center;
+  margin-right: 1rem;
+  margin-bottom: 0;
+  cursor: pointer;
+  color: #fff;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#success-page-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 40vh;
+  margin: 2rem auto;
+}
+
+#success-page-wrapper .icon {
+  height: 100px;
+  width: 100px;
+  border: 2px dotted #63d694;
+  border-radius: 50%;
+  position: relative;
+}
+
+#success-page-wrapper .icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#home-footer {
+  margin-top: 3rem;
+  background-color: #606c72;
+}
+
+#home-footer #contact-info {
+  font-size: 0.9rem;
+  color: #f0f4f5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+#home-footer #contact-info h3 {
+  padding: 1rem 0;
+}
+
+#home-footer #contact-info p:last-of-type {
+  padding: 1rem 0;
+}
+
+#registration-info {
+  margin-top: 3rem;
+}
+
+#registration-info > p {
+  margin-bottom: 16px;
+}
+
+#registration-info .grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 6em;
+  padding: 1rem;
+}
+
+#registration-info .grid-container p {
+  margin-bottom: 16px;
+}
+/*# sourceMappingURL=registration.css.map */

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscription | Onlex</title>
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div id="form-wrapper">
+            <h2>
+                <i class="fas fa-user"></i>
+                 Admin Login
+            </h2>
+                       
+            <p class="warning"> <%= message %> </p>
+             
+        <form action="/Admin/login"  method="POST" class="create-account">
+            
+            <div class="pseudo create-account-form-input">
+                <i class="far fa-envelope"></i>
+                <input type="text" name="pseudo" id="pseudo" placeholder="Enter pseudo name" required>
+            </div>
+            <div class="password create-account-form-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            
+            <input type="submit" value="SE CONNECTER" id="submit">
+            <!-- <p>Create account <a href="/membre/createaccount" class="login-link">Sign Up</a></p> -->
+        </form>
+    </div>
+    </div>
+</body>
+</html>

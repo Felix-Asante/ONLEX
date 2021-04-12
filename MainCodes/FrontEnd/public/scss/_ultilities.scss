@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans", sans-serif;
+	scroll-behavior: smooth;
+}
+//colors
+$gray-color: #f0f4f5;
+$orange: #ff4a00;
+$hot-pink: #ff4a63;
+$green: #63d694;
+$dark-color: #606c72;
+$white: #fff;
+
+// core style
+body {
+	background: $gray-color;
+	overflow-x: hidden;
+}
+a {
+	text-decoration: none;
+	color: $white;
+}
+
+.warning {
+	// background-color: $white;
+	color: $hot-pink;
+	padding: 0.5rem;
+	width: 100%;
+	text-align: center;
+	font-weight: 700;
+}
+.btn {
+	padding: 12px;
+	border: 0;
+	outline: none;
+	text-decoration: none;
+}
+.bg-green {
+	background: $green;
+}
+.dark-gray-text {
+	color: $dark-color;
+}
+.bg-orange {
+	background: $orange;
+	color: $white;
+}
+.bg-hot-pink {
+	background: $hot-pink;
+}
+.bg-dark {
+	background: $dark-color;
+}
+
+.orange-border {
+	border: 1px solid $orange;
+}
+
+.orange-text {
+	color: $orange;
+}
+.green-text{
+	color: $green;
+}
+
+.hot-pink-text{
+	color: $hot-pink;
+}
+#message{
+	color: $hot-pink;
+	font-size: .7rem;
+	display: none;
+}
+
+.btn-sm{
+	padding: 2px 6px;
+	
+}
+.border-sm{
+	border-radius: 6px;
+}
+.white-text{
+	color: $white;
+}

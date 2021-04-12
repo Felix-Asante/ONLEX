@@ -1,0 +1,369 @@
+@import "ultilities";
+@import "layout";
+#home-page {
+	width: 100vw;
+
+	.home-container {
+		height: 100%;
+		.navs-wrapper {
+			@include displayFlex(row, center, space-between);
+			background: $white;
+			box-shadow: 1px 1px 15px $dark-color;
+			height: 60px;
+			width: 100%;
+			padding: 2rem 3rem;
+			z-index: 15;
+			position: sticky;
+			top: 0;
+			left: 0;
+			@media screen and (max-width: 768px) {
+				padding: 1rem;
+			}
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+				justify-content: flex-start;
+
+				height: 100px;
+			}
+
+			.brand-logo {
+				@include displayFlex(row, center, center);
+				height: 100%;
+
+				@media screen and (max-width: 768px) {
+					height: 20%;
+				}
+
+				img {
+					width: 30px;
+					height: 50px;
+					margin-right: 15px;
+					@media screen and (max-width: 768px) {
+						width: 40px;
+						height: 40px;
+					}
+				}
+				h1 {
+					font-size: 20px;
+				}
+			}
+			#navigation {
+				@include displayFlex(row, center, space-between);
+				height: 100%;
+				@media screen and (max-width: 768px) {
+					margin-top: 1.3rem;
+				}
+				ul {
+					a {
+						padding-right: 0.6rem;
+						@media screen and (max-width: 500px) {
+							padding: 0 0.2rem;
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+		}
+
+		#home-page-showcase-content {
+			padding: 0 3rem;
+			height: 65%;
+			@include displayFlex(row, center, space-between);
+			color: $white;
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+			}
+
+			.home-text {
+				width: 350px;
+				@media screen and (max-width: 500px) {
+					text-align: center;
+					width: 100%;
+				}
+				h2 {
+					font-weight: 100;
+					font-size: 2.2rem;
+					line-height: 1.4;
+					@media screen and (max-width: 768px) {
+						font-size: 1.8rem;
+						margin-top: 3rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+%sharedGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1.5rem;
+	padding: 2rem 0;
+}
+
+//input
+input,
+select {
+	padding: 12px 15px;
+	border: 1px solid $orange;
+	outline: none;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	width: 100%;
+}
+
+button {
+	color: $white;
+	cursor: pointer;
+}
+
+label {
+	display: block;
+	margin-bottom: 8px;
+}
+
+main,
+.application-note {
+	max-width: 1150px;
+	margin: auto;
+}
+.application-note {
+	text-align: justify;
+	margin: 3rem auto;
+}
+.progress-line {
+	width: 58%;
+	height: 5px;
+	background: #d2d3d3;
+	position: absolute;
+	top: 41.2%;
+	left: 250px;
+	z-index: 100;
+
+	#progress {
+		width: 0%;
+		height: 100%;
+		transition: width 0.4s ease-in;
+	}
+}
+#progress-tracker {
+	max-width: 1150px;
+	margin: 2rem auto;
+	.icons {
+		@include displayFlex(row, center, space-around);
+		position: relative;
+		width: 80%;
+		margin: auto;
+		z-index: 100;
+
+		& > div {
+			@include displayFlex(column, center, center);
+			z-index: 380;
+
+			.user {
+				z-index: 60;
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				color: $dark-color;
+				text-align: center;
+				position: relative;
+				z-index: 380;
+				background: $gray-color;
+
+				i {
+					font-size: 1.3rem;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					z-index: 380;
+					transform: translate(-50%, -50%);
+				}
+			}
+			.bg-orange {
+				background: $orange;
+				color: $white;
+			}
+		}
+	}
+}
+
+#candidature-form-wrapper {
+	form {
+		@include displayFlex(row, center, center);
+		position: relative;
+		width: 100%;
+		height: 100vh;
+
+		#about-you {
+			margin-top: 1rem;
+			min-width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 20;
+			opacity: 1;
+
+			#personal-informations {
+				@extend %sharedGrid;
+
+				.gender {
+					@include displayFlex(column, center, flex-start);
+					margin-top: 0.8rem;
+					label {
+						display: inline;
+					}
+					input {
+						width: 50px;
+						position: relative;
+					}
+					.gender-pick {
+						@include displayFlex(row, center, center);
+						& > div {
+							@include displayFlex(row, center, center);
+							input {
+								margin-top: 0.3rem;
+								position: relative;
+								// height: 25px;
+								// width: 25px;
+							}
+						}
+					}
+				}
+			}
+			#contact {
+				min-width: 100%;
+				.contact-informations {
+					@extend %sharedGrid;
+				}
+			}
+		}
+
+		#education {
+			min-width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+
+			#education-informations {
+				@extend %sharedGrid;
+
+				#next-3 {
+					grid-row-start: 4;
+					grid-column-start: 2;
+				}
+				#prev-1 {
+					grid-column-start: 1;
+					grid-row-start: 4;
+					background-color: $orange;
+				}
+				.upload-diplome{
+					border: 1px solid $orange;
+					padding: 1rem;
+				}
+			}
+		}
+
+		#face-recognition {
+			min-width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+
+			.face-capture {
+				@include displayFlex(column, center, center);
+				padding: 2rem 0;
+
+				video {
+					width: 300px;
+					height: 200px;
+					border: 1px solid $orange;
+					margin: 0.8rem 0;
+				}
+				.capture-links {
+					margin: 0.8rem 0;
+					a {
+						padding: 0.5rem;
+						width: 120px;
+						border-radius: 4px;
+						text-align: center;
+						display: inline;
+					}
+				}
+				
+			}
+		}
+		.links{
+			@include displayFlex(row,center,center);
+			input[type="submit"] ,#prev-2{
+				border: none;
+				width: 30%;
+				text-align: center;
+				margin-right: 1rem;
+				margin-bottom: 0;
+				cursor: pointer;
+				color: $white;
+				justify-self: center;
+			}
+		}
+	}
+}
+// REGISTRATION SUCCESS
+#success-page-wrapper{
+	@include displayFlex(column,center,space-around);
+	height: 40vh;
+	margin: 2rem auto;
+
+	.icon{
+		height: 100px;
+		width: 100px;
+		border: 2px dotted $green;
+		// padding: 2rem;
+		border-radius: 50%;
+		position: relative;
+		i{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+}
+
+//footer
+#home-footer {
+	margin-top: 3rem;
+	background-color: $dark-color;
+	#contact-info {
+		font-size: 0.9rem;
+		color: $gray-color;
+		@include displayFlex(column, center, center);
+		height: 100%;
+		h3 {
+			padding: 1rem 0;
+		}
+		p:last-of-type {
+			padding: 1rem 0;
+		}
+	}
+}
+
+// * AFFICHE REGISTRATION
+#registration-info{
+	margin-top: 3rem;
+    &>p{
+		margin-bottom:16px ;
+	}
+	.grid-container{
+		display: grid;
+		grid-template-columns: repeat(2,1fr);
+		grid-gap: 6em;
+		padding: 1rem;
+		p{
+			margin-bottom: 16px;
+		}
+	}
+}

@@ -1,0 +1,682 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f0f4f5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.warning {
+  color: #ff4a63;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn {
+  padding: 12px;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+.bg-green {
+  background: #63d694;
+}
+
+.dark-gray-text {
+  color: #606c72;
+}
+
+.bg-orange {
+  background: #ff4a00;
+  color: #fff;
+}
+
+.bg-hot-pink {
+  background: #ff4a63;
+}
+
+.bg-dark {
+  background: #606c72;
+}
+
+.orange-border {
+  border: 1px solid #ff4a00;
+}
+
+.orange-text {
+  color: #ff4a00;
+}
+
+.green-text {
+  color: #63d694;
+}
+
+.hot-pink-text {
+  color: #ff4a63;
+}
+
+#message {
+  color: #ff4a63;
+  font-size: .7rem;
+  display: none;
+}
+
+.btn-sm {
+  padding: 2px 6px;
+}
+
+.border-sm {
+  border-radius: 6px;
+}
+
+.white-text {
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    padding: 5px;
+  }
+}
+
+#home-page {
+  background: url("../img/homepage-header-img.jpg") no-repeat center center/cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+#home-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #606c72;
+  opacity: 0.65;
+  z-index: -1;
+}
+
+#home-page .home-container {
+  height: 100%;
+}
+
+#home-page .home-container .navs-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 15px #606c72;
+          box-shadow: 1px 1px 15px #606c72;
+  height: 60px;
+  width: 100%;
+  padding: 2rem 3rem;
+  z-index: 15;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    height: 100px;
+  }
+}
+
+#home-page .home-container .navs-wrapper .brand-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper .brand-logo {
+    height: 20%;
+  }
+}
+
+#home-page .home-container .navs-wrapper .brand-logo img {
+  width: 30px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper .brand-logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+#home-page .home-container .navs-wrapper .brand-logo h1 {
+  font-size: 20px;
+}
+
+#home-page .home-container .navs-wrapper #navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container .navs-wrapper #navigation {
+    margin-top: 1.3rem;
+  }
+}
+
+#home-page .home-container .navs-wrapper #navigation ul a {
+  padding-right: 0.6rem;
+}
+
+@media screen and (max-width: 500px) {
+  #home-page .home-container .navs-wrapper #navigation ul a {
+    padding: 0 0.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content {
+  padding: 0 3rem;
+  height: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container #home-page-showcase-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content .home-text {
+  width: 350px;
+}
+
+@media screen and (max-width: 500px) {
+  #home-page .home-container #home-page-showcase-content .home-text {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content .home-text h2 {
+  font-weight: 100;
+  font-size: 2.2rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+  #home-page .home-container #home-page-showcase-content .home-text h2 {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+  }
+}
+
+#home-page .home-container #home-page-showcase-content #search-for-concours {
+  background: rgba(122, 122, 122, 0.8);
+  color: white;
+  padding: 1rem;
+  margin-right: 3rem;
+  margin-top: 3.7rem;
+}
+
+#home-page .home-container #home-page-showcase-content #search-for-concours h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#home-page .home-container #home-page-showcase-content #search-for-concours form {
+  z-index: 10;
+}
+
+#home-page .home-container #home-page-showcase-content #search-for-concours form input {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+#home-page .home-container #home-page-showcase-content #search-for-concours form input[type="submit"] {
+  color: white;
+  cursor: pointer;
+}
+
+#info-annonce {
+  margin: 2rem 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  height: 350px;
+}
+
+@media screen and (max-width: 768px) {
+  #info-annonce {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+#info-annonce .info-exclusive {
+  background: #dee1e2;
+  padding: 1rem;
+  overflow: auto;
+}
+
+#info-annonce .info-exclusive h3 {
+  text-align: center;
+}
+
+#info-annonce .annonce {
+  background: #dee1e2;
+  padding: 1rem 2rem;
+  overflow: auto;
+}
+
+#info-annonce .annonce h3 {
+  text-align: center;
+}
+
+#info-annonce .annonce a {
+  display: block;
+  color: #606c72;
+  margin-top: 0.5rem;
+}
+
+#info-annonce .annonce a:hover {
+  color: #ff4a63;
+}
+
+#ecole-paternaire {
+  background-color: #fff;
+  width: 100vw;
+  padding: 1rem;
+  text-align: center;
+}
+
+#ecole-paternaire .ecoles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 0 4rem;
+  margin-top: 2rem;
+}
+
+#ecole-paternaire .ecoles img {
+  width: 100px;
+  height: 100px;
+}
+
+#home-footer {
+  margin-top: 3rem;
+  background-color: #606c72;
+}
+
+#home-footer #contact-info {
+  font-size: 0.9rem;
+  color: #f0f4f5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+#home-footer #contact-info h3 {
+  padding: 1rem 0;
+}
+
+#home-footer #contact-info p:last-of-type {
+  padding: 1rem 0;
+}
+
+.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  color: #606c72;
+  background: #63d694;
+}
+
+.form-container #form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 400px;
+  background: rgba(240, 244, 245, 0.4);
+  border-radius: 14px;
+  padding: 2rem 0;
+}
+
+.form-container #form-wrapper form {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 0.5rem 2rem;
+}
+
+.form-container #form-wrapper form input {
+  border: 2px solid #606c72;
+  outline: none;
+  padding: 15px 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+.form-container #form-wrapper form .create-account-form-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.form-container #form-wrapper form .create-account-form-input i {
+  color: #fff;
+  font-size: 2rem;
+  background: #606c72;
+  padding: 10px 7px;
+  margin-bottom: 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+.form-container #form-wrapper form #submit {
+  width: 100%;
+  text-align: center;
+  background: #ff4a63;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.annonce-header {
+  background-image: url("../img/annonce-page-header.jpg") !important;
+  background-position: center center;
+  background-size: cover;
+  height: 60vh !important;
+  width: 100%;
+}
+
+.annonce-header #concour-titre {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 2.5rem;
+  z-index: 15;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#annonce-layout {
+  padding: 3rem 4rem;
+  text-align: justify;
+}
+
+#annonce-layout .btn {
+  display: block;
+  margin-top: 2rem;
+  width: 120px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#user-dashboard {
+  height: 10vh;
+}
+
+#user-dashboard .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1120px;
+  margin: auto;
+  height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  #user-dashboard .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#user-dashboard .container a {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 500px) {
+  #user-dashboard-area {
+    margin: 0 0.8rem;
+  }
+}
+
+#user-dashboard-area .wrapper {
+  max-width: 1120px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  grid-gap: 8rem;
+}
+
+@media screen and (max-width: 500px) {
+  #user-dashboard-area .wrapper {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
+#user-dashboard-area .welcome-notice-and-applications p {
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+#user-dashboard-area .welcome-notice-and-applications .applications h3 {
+  color: #fff;
+  padding: .5rem;
+}
+
+#user-dashboard-area .welcome-notice-and-applications .applications .application-list {
+  margin-top: 15px;
+}
+
+#user-dashboard-area .welcome-notice-and-applications .applications .application-list p:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#user-dashboard-area .welcome-notice-and-applications .applications .application-list p {
+  font-size: 16px;
+  text-align: left;
+  padding: .5rem;
+}
+
+#user-dashboard-area .notification {
+  margin-top: 3.1rem;
+}
+
+#user-dashboard-area .notification p {
+  font-size: 1.4rem;
+}
+
+#user-dashboard-area .notification .annonce {
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 25px;
+  overflow: scroll;
+}
+/*# sourceMappingURL=style.css.map */

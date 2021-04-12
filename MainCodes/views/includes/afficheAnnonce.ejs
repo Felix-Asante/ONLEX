@@ -1,0 +1,83 @@
+<table id="table">
+    <thead>
+        <tr>
+            <%for(var item of head){%>
+            <th><%=item%></th>
+            <%}%>
+            <th>delete</th>
+            <th>update</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        
+            <%for (var list of data) {%>
+                <tr>
+                <%for (var item in list) {%>
+                <td><%=list[item]%></td>
+                <%}%>
+                <td><a href="/Admin/delete/?itemaccess=<%=list[Object.keys(list)[0]]%>&source=<%=db%>"><i class="fas fa-trash-alt red-text"></i></a></td>
+                <td><a href="/Admin/update/?itemaccess=<%=list[Object.keys(list)[0]]%>&source=<%=db%>"><i class="far fa-edit green-text"></i></a></td>
+                
+                </tr>
+                <%}%>
+        
+    </tbody>
+</table>
+
+<!-- *! UPDATE ANNONCE MODEL -->
+<%if(id=="create-annonce"){%>
+<div class="create-annonce" id="<%= id %>">
+       
+    <div class="update-form-wrapper">
+        <i class="fas fa-times close"></i>
+        <form action="/admin/updateannonce" method="POST">
+            <div class="annonce-titre">
+                <label for="">Titre: </label>
+                <input type="text" name="titre" id="" placeholder="Titre" value="<%=titre%>" required>
+            </div>
+            <div class="annonce-description">
+                <label for="">description: </label>
+                <textarea name="description" id="" value="" required><%=description%></textarea>
+            </div>
+            <input type="text" name="padding:<%=idConcour%>" id="" value="" hidden>
+            <input type="submit" value="VALIDER" id="submit">
+        </form>
+    </div>
+</div>
+<%}%>
+
+
+<!-- *!UPDATE CONCOUR MODEL -->
+<%if(id=="update-concour"){%>
+<div class="creat-annonce create-concour" id="<%= id %>">
+       
+    <div class="update-form-wrapper concour-form">
+        <i class="fas fa-times update-concour-close close-concour"></i>
+        <form action="/Admin/updateconcours" method="POST">
+            <div class="annonce-titre">
+                <label for="">Titre: </label>
+                <input type="text" name="titre" id="" placeholder="Titre" value="<%=result.titre%>" required>
+            </div>
+            <div class="annonce-titre">
+                <label for="">Ecole: </label>
+                <input type="text" name="ecole" id="" placeholder="Ecole" value="<%=result.ecole%>" required>
+            </div>
+            <div class="annonce-description concour-description">
+                <label for="">description: </label>
+                <textarea name="description" id="" required><%=result.description%></textarea>
+            </div>
+            <div class="date-debut">
+                <label for=""> Date debut</label>
+                <input type="date" name="dateDepot" id="" value="<%=result.dateDepot%>" required>
+            </div>
+            <div class="date-debut">
+                <label for="">Date fin</label>
+                <input type="date" name="dateFin" id="" value="<%=result.dateFin%>" required>
+            </div>
+            <input type="text" name="padding:<%=result.idConcours%>" id="" value="" hidden>
+            <input type="submit" value="VALIDER" id="submit">
+        </form>
+    </div>
+</div>
+<%}%>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/ONLEX-LOGO.png">
+    <title>ONLEX</title>
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/registration.css">
+</head>
+<body>
+    <header id="home-page"class="candidature">
+        <div class="home-container">
+            <div class="navs-wrapper">
+                <div class="brand-logo">
+                    <img src="/img/favicon.png" alt="onlex logo">
+                    <h1 class="brand-name dark-gray-text">
+                        ONLEX
+                    </h1>
+                </div>
+                <nav id="navigation">
+                    <ul class="nav-link">
+                        <a href="/admin" class="dark-gray-text">Tableau de bord</a>                        
+                    </ul>
+                    
+             </div>
+        </div>
+    </header>
+    <main id="registration-info">
+        <p class="bg-green">Identite</p>
+        <div class="grid-container">
+            <div class="candidate-text-information">
+                <p> <strong>Nom et Prenom:</strong> <%=candidat.nom%> <%=candidat.prenom%> </p>
+                <p><strong>Date de Naissance:</strong><%=candidat.dateNaissance%></p>
+                <p><strong>Sexe:</strong><%=candidat.sexe%></p>
+                <p><strong>E-mail:</strong><%=candidat.email%></p>
+                <p><strong>Telephone:</strong><%=candidat.telephone%></p>
+                <p><strong>City:</strong><%=candidat.ville%></p>
+                <p><strong>Ecole:</strong><%=candidat.ecole%></p>
+                <p><strong>Region d'ecole:</strong><%=candidat.region%></p>
+                <p><strong>Type de concours:</strong> <%=candidat.typeDeConcours%></p>
+                <p><strong>Diplome Recent</strong> </p>
+                <img src="<%=candidat.diplome%>" alt="Candidate diplome" width="150px" height="150px">
+            </div>
+
+            <div class="candidate-photo-and-admin-verdict">
+                <p><strong>Photo du Candidat</strong></p>
+                <img src="<%=candidat.img1%>" alt="Candidat Photo" width="150px" height="150px">
+                <a  href="/Admin/validregistration?src=<%=candidat.idInscription%>" style="display: block; width: 30%;
+                margin-bottom: 10px; text-align: center;" class="bg-green btn">Valider</a>
+                <a href="/Admin/rejectregistration?src=<%=candidat.idInscription%>"style="display: block; width: 30%;
+                    margin-bottom: 10px; text-align: center;" class="bg-hot-pink btn">Rejetter</a></li>    
+                
+            </div>
+        </div>
+    </main>
+    <footer id="home-footer">
+        <div id="contact-info">
+            <h3>Nos Contacts</h3>
+            <p>E-mail: developpers@onlex.com</p>
+            <p>Tel: 000 00 0000</p>
+            <p class="copyright">&copy; Copyright. All right reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

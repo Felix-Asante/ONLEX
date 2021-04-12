@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onlex | User</title>
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+
+</head>
+<body>
+    <header id="user-dashboard" class="bg-green">
+        <div class="container">
+            <a href="" id="user-header-navs" class="profile">Profile</a>
+            <div style="display: flex; align-items: center;">
+
+                <a href="/" style="margin-right:15px">Accueil</a>
+                <form action="/membre/logout?_method=DELETE" method="POST">
+                    <button type="submit" style="cursor: pointer;" class="btn">Deconnecter <i class="fas fa-power-off hot-pink-text"></i></button>
+                    <!-- <a href="" id="user-header-navs" class="profile">Deconnecter <i class="fas fa-power-off hot-pink-text"></i></a> -->
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div id="user-dashboard-area">
+        <div class="wrapper">
+            <div class="welcome-notice-and-applications">
+                <p>Bonjour <%=userName%> ! 😊</p>
+                <div class="applications">
+                    <h3 class="bg-hot-pink">Mes Candidatures</h3>
+                    <div class="application-list">
+                        <%if(candidature){%>
+                            <%for(let i=0;i<candidature.length;i++){%>
+                                <%if(candidature[i].message=="Non Acceptée"){%>
+                                <p><%=candidature[i].titre%><span class="bg-hot-pink btn-sm white-text border-sm" style="margin-left: 2rem;"><%=candidature[i].message%></span></p>
+                                <%}else{%>
+                                    <p><%=candidature[i].titre%><span class="bg-green btn-sm white-text border-sm" style="margin-left: 2rem;"><%=candidature[i].message%></span></p>         
+                                <%}%>
+                                <%}%>
+                        <%}else{%>
+                            <h3>Aucune Candidature</h3>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+            <div class="notification">
+                <p class="hot-pink-text">NOTIFICATION</p>
+                <div class="annonce"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

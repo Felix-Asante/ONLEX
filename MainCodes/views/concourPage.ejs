@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/ONLEX-LOGO.png">
+    <title>ONLEX</title>
+    <link rel="stylesheet" href="/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <header id="home-page" class="annonce-header">
+        <div class="home-container">
+            <div class="navs-wrapper">
+                <div class="brand-logo">
+                    <img src="/img/favicon.png" alt="onlex logo">
+                    <h1 class="brand-name dark-gray-text">
+                        ONLEX
+                    </h1>
+                </div>
+                <nav id="navigation">
+                    <ul class="nav-link">
+                        <a href="/" class="dark-gray-text">ACCUEIL</a>
+                        <!-- <a href="" class="dark-gray-text">ANNONCE</a> -->
+                        <a href="#home-footer" class="dark-gray-text">CONTACT</a>
+                    </ul>
+                    <a href="/membre/login" class="btn bg-orange">CONNECTER</a>
+                </nav>
+             </div>
+        <div id="concour-titre">
+            <h3><%=concours.titre%></h3>
+        </div>
+    </header>
+    <section id="annonce-layout">
+        <p><%=concours.description%></p>
+        <a href="/candidature?xml_data_map=<%=concours.idConcours%>" class="btn bg-orange">Candidater</a>
+    </section>
+    <footer id="home-footer">
+        <div id="contact-info">
+            <h3>Nos Contacts</h3>
+            <p>E-mail: developpers@onlex.com</p>
+            <p>Tel: 000 00 0000</p>
+            <p class="copyright">&copy; Copyright. All right reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/owlcarousel/owl.carousel.min.js"></script>
+    
+</body>
+</html>

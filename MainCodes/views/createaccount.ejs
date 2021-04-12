@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscription | Onlex</title>
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div id="form-wrapper">
+            <h2>
+                CREATE AN ACCOUNT
+            </h2>
+        <form action="/membre/createaccount" method="POST" class="create-account">
+            <div class="fullname create-account-form-input">
+                <i class="fas fa-user"></i>
+                <input type="text" name="nom" id="name" placeholder="Nom" required>
+            </div>
+            <div class="fullname create-account-form-input">
+                <i class="fas fa-user"></i>
+                <input type="text" name="prenom" id="name" placeholder="Prenom" required>
+            </div>
+            <div class="email create-account-form-input">
+                <i class="far fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Enter email" required>
+            </div>
+            <div class="password create-account-form-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="confirm-password create-account-form-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="cpassword" id="cpass" placeholder="confirm Password" required>
+            </div>
+            <div class="create-account-form-input">
+
+            </div>
+            <input type="submit" value="CREATE ACCOUNT" id="submit">
+            <p>Already have an account <a href="/membre/login" class="login-link">Login</a></p>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

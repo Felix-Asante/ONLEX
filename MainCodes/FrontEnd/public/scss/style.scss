@@ -1,0 +1,395 @@
+@import "ultilities";
+@import "layout";
+@import "responsive";
+// ACCUEIL
+#home-page {
+	background: url("../img/homepage-header-img.jpg") no-repeat center
+		center/cover;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $dark-color;
+		opacity: 0.65;
+		z-index: -1;
+	}
+
+	.home-container {
+		height: 100%;
+		.navs-wrapper {
+			@include displayFlex(row, center, space-between);
+			background: $white;
+			box-shadow: 1px 1px 15px $dark-color;
+			height: 60px;
+			width: 100%;
+			padding: 2rem 3rem;
+			z-index: 15;
+			position: sticky;
+			top: 0;
+			left: 0;
+			@media screen and (max-width: 768px) {
+				padding: 1rem;
+			}
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+				justify-content: flex-start;
+
+				height: 100px;
+			}
+
+			.brand-logo {
+				@include displayFlex(row, center, center);
+				height: 100%;
+
+				@media screen and (max-width: 768px) {
+					height: 20%;
+				}
+
+				img {
+					width: 30px;
+					height: 50px;
+					margin-right: 15px;
+					@media screen and (max-width: 768px) {
+						width: 40px;
+						height: 40px;
+					}
+				}
+				h1 {
+					font-size: 20px;
+				}
+			}
+			#navigation {
+				@include displayFlex(row, center, space-between);
+				height: 100%;
+				@media screen and (max-width: 768px) {
+					margin-top: 1.3rem;
+				}
+				ul {
+					a {
+						padding-right: 0.6rem;
+						@media screen and (max-width: 500px) {
+							padding: 0 0.2rem;
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+		}
+
+		#home-page-showcase-content {
+			padding: 0 3rem;
+			height: 65%;
+			@include displayFlex(row, center, space-between);
+			color: $white;
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+			}
+
+			.home-text {
+				width: 350px;
+				@media screen and (max-width: 500px) {
+					text-align: center;
+					width: 100%;
+				}
+				h2 {
+					font-weight: 100;
+					font-size: 2.2rem;
+					line-height: 1.4;
+					@media screen and (max-width: 768px) {
+						font-size: 1.8rem;
+						margin-top: 3rem;
+					}
+				}
+			}
+
+			#search-for-concours {
+				background: rgba(122, 122, 122, 0.8);
+
+				color: white;
+				padding: 1rem;
+				margin-right: 3rem;
+				margin-top: 3.7rem;
+
+				h3 {
+					font-size: 1rem;
+					font-weight: 200;
+					margin-bottom: 1rem;
+					text-align: center;
+				}
+				form {
+					z-index: 10;
+					input {
+						width: 100%;
+						padding: 10px 15px;
+						border: none;
+						outline: none;
+						margin-bottom: 10px;
+						border-radius: 4px;
+					}
+					input[type="submit"] {
+						color: white;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}
+
+// INFO-ANNONCE
+#info-annonce {
+	margin: 2rem 3rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 2rem;
+	height: 350px;
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
+	.info-exclusive {
+		background: #dee1e2;
+		padding: 1rem;
+		overflow: auto;
+		h3 {
+			text-align: center;
+		}
+	}
+	.annonce {
+		background: #dee1e2;
+		padding: 1rem 2rem;
+		overflow: auto;
+		h3 {
+			text-align: center;
+		}
+		a {
+			display: block;
+			color: $dark-color;
+			margin-top: 0.5rem;
+			&:hover {
+				color: $hot-pink;
+			}
+		}
+	}
+}
+
+// ECOLE PATERNAIRE
+#ecole-paternaire {
+	background-color: $white;
+	width: 100vw;
+	padding: 1rem;
+	text-align: center;
+
+	.ecoles {
+		@include displayFlex(row, center, center);
+		width: 100%;
+		padding: 0 4rem;
+		margin-top: 2rem;
+		img {
+			width: 100px;
+			height: 100px;
+		}
+	}
+}
+
+// home page footer
+#home-footer {
+	margin-top: 3rem;
+	background-color: $dark-color;
+	#contact-info {
+		font-size: 0.9rem;
+		color: $gray-color;
+		@include displayFlex(column, center, center);
+		height: 100%;
+		h3 {
+			padding: 1rem 0;
+		}
+		p:last-of-type {
+			padding: 1rem 0;
+		}
+	}
+}
+
+.form-container {
+	@include displayFlex(column, center, center);
+	height: 100vh;
+	color: $dark-color;
+	background: $green;
+
+	#form-wrapper {
+		@include displayFlex(column, center, center);
+		width: 400px;
+		// background: linear-gradient(to right,rgba(240, 244, 245,0.5));
+		background: rgba(240, 244, 245, 0.4);
+		border-radius: 14px;
+		padding: 2rem 0;
+
+		form {
+			margin-top: 1rem;
+			@include displayFlex(column, center, center);
+			width: 100%;
+			padding: 0.5rem 2rem;
+
+			input {
+				border: 2px solid $dark-color;
+				outline: none;
+				padding: 15px 10px;
+				width: 100%;
+				margin-bottom: 10px;
+				border-radius: 0 5px 5px 0;
+			}
+
+			.create-account-form-input {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+
+				i {
+					color: $white;
+					font-size: 2rem;
+					// text-align: center;
+					background: $dark-color;
+					padding: 10px 7px;
+					margin-bottom: 10px;
+					border-radius: 5px 0 0 5px;
+				}
+			}
+
+			#submit {
+				width: 100%;
+				text-align: center;
+				background: $hot-pink;
+				border-radius: 5px;
+				border: none;
+				color: $white;
+				font-size: 1.1rem;
+				padding: 12px;
+				cursor: pointer;
+				// margin-top: 1rem;
+			}
+		}
+	}
+}
+
+// ANNONCE PAGE
+
+.annonce-header {
+	background-image: url("../img/annonce-page-header.jpg") !important;
+	background-position: center center;
+	background-size: cover;
+	height: 60vh !important;
+	width: 100%;
+
+	#concour-titre {
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		color: $white;
+		font-size: 2.5rem;
+		z-index: 15;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+#annonce-layout {
+	padding: 3rem 4rem;
+	text-align: justify;
+
+	.btn {
+		display: block;
+		margin-top: 2rem;
+		width: 120px;
+		border-radius: 4px;
+		text-align: center;
+	}
+}
+
+//CANDIDATE dashboard
+#user-dashboard{
+	height: 10vh;
+
+	.container{
+		@include displayFlex(row,center,space-between);
+		max-width: 1120px;
+		margin: auto;
+		height: 100%;
+
+		@media screen and (max-width:500px) {
+			flex-direction: column;	
+			justify-content: center;
+		}
+		a{
+			font-size: 1.2rem;
+		}
+	}
+}
+
+#user-dashboard-area{
+	@media screen and (max-width:500px) {
+		margin: 0 0.8rem;
+	}
+	.wrapper{
+		max-width: 1120px;
+		margin: auto;
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-gap: 8rem;
+
+		@media screen and (max-width:500px) {
+			grid-template-columns: auto;
+		}
+	}
+	.welcome-notice-and-applications{
+		
+		p{
+			padding: 2rem 0;
+			font-size: 2rem;
+			font-weight: 300;
+			text-align: center;
+		}
+		.applications{
+
+			h3{
+				color: $white;
+				padding: .5rem;
+			}
+			.application-list{
+				margin-top: 15px;
+				& p:nth-child(even){
+					background-color: rgba(255,255,255,0.7);
+				}
+				p{
+					font-size: 16px;
+					text-align: left;
+					padding: .5rem;
+				}
+			}
+		}
+	}
+	.notification{
+		margin-top: 3.1rem;
+		p{
+			font-size: 1.4rem;
+		}
+		.annonce{
+			width: 100%;
+			height: 400px;
+			background-color: $white;
+			box-shadow: 1px 1px 20px rgba(0,0,0,0.1);
+			margin-top: 25px;
+			overflow: scroll;
+		}
+	}
+}
