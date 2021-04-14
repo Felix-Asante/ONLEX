@@ -17,32 +17,7 @@
 </head>
 
 <body>
-    <header id="admin-header" class="darkbg">
-        <div class="admin-container">
-            <nav class="admin-header-navs">
-                <div class="onlex-logo simple-flex">
-                    <img src="/img/favicon-white.png" width="50px" height="50px" alt="onlex-logo" class="white-text">
-                    <h2 class="green-text">ONLEX</h2>
-                </div>
-                <div class="hamburger">
-                    <span class="hamburger-menu"></span>
-                    <span class="hamburger-menu"></span>
-                    <span class="hamburger-menu"></span>
-                </div>
-                <div class="header-buttons">
-                    <a href="/Admin/" class="btn annonce-bell btn-pink"><i class="far fa-bell"></i> Annonce</a>
-                    <a href="" class="btn concours-bell btn-red" style="margin-right: 10px;"><i class="fas fa-graduation-cap"></i> Concours</a>
-                    <a href="" class="btn btn-green"><i class="fas fa-cog"></i> Parametre</a>
-                </div>
-                <div id="active-user" class="simple-flex">
-                   
-                        <a href="" class="white-text">Déconnexion <i class="fas fa-power-off"></i></a>
-                   
-                    <!-- <img src="../icons/user.png" alt=""> -->
-                </div>
-            </nav>
-        </div>
-    </header>
+    <%-include("./includes/adminHeader")%>
     <main class="admin-area bg-lightGray">
         <aside id="admin-area-navs" class="whitebg">
             <nav class="navigations dark-color admin-container">
@@ -52,8 +27,8 @@
                         quiz
                         </span> Question Bank <i class="fas fa-chevron-right"></i></a>
                     <ul id="question-options">
-                        <li><a href="">Subject</a></li>
-                        <li><a href="">Questions</a></li>
+                        <li><a href="/question/createnewquestion">New Question</a></li>
+                        <li><a href="/question/questionbank">Questions</a></li>
                     </ul>
 
                 </div>

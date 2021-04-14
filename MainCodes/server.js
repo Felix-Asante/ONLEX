@@ -15,9 +15,11 @@ const DBCONNECTION =require("./DBMODEL/dbConnection")
 // ! OAuth
 const checkAuthenticated = require("./OAuth/checkAuthenticated")
 const checkNotAuthenticated = require("./OAuth/checkNotAuthenticated")
-// routers
+
+// * ROUTERS
 const membre =  require("./Routes/users");
 const admin = require("./Routes/admin")
+const Questions = require("./Routes/question")
 
 // ! PASSPORT CONFIG 
 const initializePassportAuth = require("./OAuth/passport-config")
@@ -39,10 +41,13 @@ app.use(passport.session())
 
 // * METHOD OVERRIDE
 app.use(methodOverride('_method'))
+
 // * INCLUDE DATABASE MODELS
 
 // PORT USED
 const PORT = process.env.PORT || 8080;
+
+// * VIEW ENGINE SETUP AND BODY-PARSER
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.set('view engine',"ejs");
@@ -80,6 +85,7 @@ app.get('/candidature', checkAuthenticated,(req,res)=>{
 //routes
 app.use("/membre",membre)
 app.use("/Admin",admin)
+app.use("/question",Questions)
 
 //server
 app.listen(PORT , ()=>{

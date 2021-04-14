@@ -88,12 +88,12 @@ a {
   color: #fff;
 }
 
-#home-page {
-  width: 100vw;
+input[type="submit"] {
+  cursor: pointer;
 }
 
-#home-page .home-container {
-  height: 100%;
+#home-page {
+  width: 100vw;
 }
 
 #home-page .home-container .navs-wrapper {

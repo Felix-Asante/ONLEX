@@ -507,6 +507,8 @@ thead {
 tbody tr {
 	border-bottom: 1px solid #cecece;
 	max-height: 5px;
+	
+	
 }
 tbody tr:nth-child(even) {
 	background-color: #fff;

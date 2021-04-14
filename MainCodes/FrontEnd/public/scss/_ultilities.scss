@@ -86,3 +86,7 @@ a {
 .white-text{
 	color: $white;
 }
+
+input[type="submit"]{
+	cursor: pointer;
+}

@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f0f4f5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.warning {
+  color: #ff4a63;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn {
+  padding: 12px;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+.bg-green {
+  background: #63d694;
+}
+
+.dark-gray-text {
+  color: #606c72;
+}
+
+.bg-orange {
+  background: #ff4a00;
+  color: #fff;
+}
+
+.bg-hot-pink {
+  background: #ff4a63;
+}
+
+.bg-dark {
+  background: #606c72;
+}
+
+.orange-border {
+  border: 1px solid #ff4a00;
+}
+
+.orange-text {
+  color: #ff4a00;
+}
+
+.green-text {
+  color: #63d694;
+}
+
+.hot-pink-text {
+  color: #ff4a63;
+}
+
+#message {
+  color: #ff4a63;
+  font-size: .7rem;
+  display: none;
+}
+
+.btn-sm {
+  padding: 2px 6px;
+}
+
+.border-sm {
+  border-radius: 6px;
+}
+
+.white-text {
+  color: #fff;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+#create-new-question-form-wrapper {
+  max-width: 1100px;
+  padding: 2rem 3rem;
+  margin: auto;
+}
+
+#create-new-question-form-wrapper .question-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#create-new-question-form-wrapper .question-container form {
+  width: calc(100% - 300px);
+  margin-top: 1rem;
+}
+
+#create-new-question-form-wrapper .question-container form input, #create-new-question-form-wrapper .question-container form textarea, #create-new-question-form-wrapper .question-container form select {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+#create-new-question-form-wrapper .question-container form textarea {
+  height: 150px;
+  resize: none;
+  padding: .7rem;
+  border: 1px solid #ff4a00;
+  border-radius: 4px;
+  outline: none;
+}
+
+#create-new-question-form-wrapper .question-container form .input-verdict {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#create-new-question-form-wrapper .question-container form .input-verdict .verdict {
+  width: 20%;
+  margin-left: 10px;
+  border: none;
+  background: rgba(43, 42, 42, 0.5);
+  color: white;
+}
+
+.table-container {
+  height: 90vh;
+  overflow: scroll;
+  position: relative;
+  margin: 3rem auto;
+}
+
+#table {
+  margin: 3rem auto;
+  border-collapse: collapse;
+  text-align: center;
+  height: 100%;
+  width: 90vw;
+  padding: 1rem 0;
+  overflow: scroll;
+}
+
+thead {
+  background-color: #63d694;
+  color: #ffff;
+  height: 40px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+tbody tr {
+  border-bottom: 1px solid #cecece;
+  padding: .8rem;
+}
+
+tbody tr td {
+  padding: .8rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+/*# sourceMappingURL=question.css.map */

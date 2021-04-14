@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLEX | CREATE NEW QUESTION</title>
+    <link rel="stylesheet" href="/styles/registration.css">
+    <link rel="stylesheet" href="/styles/question.css">
+</head>
+<body>
+    <%-include("./includes/subAdminHeader")%>
+    
+    <main id="create-new-question-form-wrapper">
+        <div class="question-container">
+            <form action="/question/createnewquestion" method="POST">
+                <h3 class="bg-green btn white-text" style="width: 100%; text-align: center; margin-bottom: 30px;">CREEZ UNE NOUVELLE QUESTION</h3>
+              <div class="intitule">
+                  <label for="intitule">Intitule:</label>
+                  <textarea name="intitule" id="intitule" placeholder="Intitule"></textarea>
+              </div>
+              <div class="typederesponse">
+                  <label for="typeresponse">Type de response:</label>
+                  <select name="typeresponse" id="typeresponse">
+                      <option value="Choix unique">Choix unique</option>
+                      <option value="Choix multiple">Choix multiple</option>
+                  </select>
+              </div>
+              <div class="numoption">
+                  <label for="numberption">Nombre d'option:</label>
+                  <input type="number" name="numberoption" id="numoptions">
+              </div>
+              <div id="options">
+
+              </div>
+              <div class="point">
+                  <label for="numpoint">Point: </label>
+                  <input type="number" name="point" id="numpoint" placeholder="numero de point">
+              </div>
+              <input type="submit" value="AJOUTER" class="btn bg-green white-text">
+            </form>
+        </div>
+    </main>
+</body>
+
+<script>
+    const optionContainer = document.getElementById("options");
+    const numberOfOptions = document.getElementById("numoptions")
+
+    numberOfOptions.addEventListener("blur", function(){
+
+        if(optionContainer.hasChildNodes()){
+            optionContainer.innerHTML=''
+        }
+        for(let i=0;i<numberOfOptions.value;i++){
+            const div = document.createElement("div")
+            const inputSelectDiv = document.createElement("div")
+            inputSelectDiv.classList.add('input-verdict')
+            div.classList.add('response-options')
+            const label = document.createElement("label")
+            label.innerHTML=`option${i+1}`
+            const input = document.createElement("input")
+            const select = document.createElement("select")
+
+            select.name=`option${i+1}`
+            select.classList.add("verdict")
+
+            const selectOption1 = document.createElement("option")
+            const selectOption2 = document.createElement("option")
+
+            selectOption1.value="True"
+            selectOption1.innerHTML="True"
+
+            selectOption2.value="False"
+            selectOption2.innerHTML='False'
+
+            select.appendChild(selectOption2)
+            select.appendChild(selectOption1)
+
+            input.type='text';
+            input.placeholder=`option ${i+1}`;
+            input.name=`option${i+1}`
+            input.required="true"
+            div.appendChild(label)
+           inputSelectDiv.appendChild(input)
+           inputSelectDiv.appendChild(select)
+            div.appendChild(inputSelectDiv);
+            optionContainer.appendChild(div);
+
+
+        }
+    })
+
+   
+</script>
+</html>
+
