@@ -6,13 +6,13 @@ The smart system
 
 Tous les codes source de l'application se trouvent dans le dossier `MainCodes` 
 
-Tout d'abord, vous devez créer une instance de la base de données sur votre MySQL Workbench avec les détails suivants:\
+Tout d'abord, vous devez créer une instance de la base de données sur votre MySQL Workbench avec les détails suivants:
 
 ```
 hostname:mysql-27963-0.cloudclusters.net
 user:Developpers
 port:27963 
-password:JOSUE@le1SAGE**
+password:JOSUE@le1SAGE
 ```
 Apres, installez les modules de projet en exécutant:\
 `npm i ou npm install`
