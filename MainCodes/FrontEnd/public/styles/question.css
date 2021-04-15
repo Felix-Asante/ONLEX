@@ -187,4 +187,84 @@ tbody tr td {
 tbody tr:nth-child(even) {
   background-color: #fff;
 }
+
+#create-question-wrapper {
+  margin-top: 3rem;
+  position: relative;
+}
+
+#create-question-wrapper .container h3 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 2rem;
+  padding: .6rem 0;
+}
+
+#create-question-wrapper .container form .question-info {
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 20px #f0f4f5;
+          box-shadow: 1px 1px 20px #f0f4f5;
+  z-index: 20;
+}
+
+#create-question-wrapper .container form .question-info #question-info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: .5rem;
+  padding: .8rem 1.8rem;
+}
+
+#create-question-wrapper .container form .question-info #question-info button {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  width: 40%;
+  float: right;
+}
+
+#create-question-wrapper .container form input, #create-question-wrapper .container form select {
+  width: 90%;
+}
+
+#create-question-wrapper .container form #questions {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -20;
+}
+
+#create-question-wrapper .container form #questions .tables {
+  height: 60vh;
+  overflow: scroll;
+}
+
+#create-question-wrapper .container form #questions .tables table {
+  width: 100%;
+  overflow: scroll;
+}
+
+#create-question-wrapper .container form #questions .tables thead tr th:first-child {
+  width: 90%;
+}
+
+#create-question-wrapper .container form #questions .tables tbody tr td {
+  text-align: left;
+}
+
+#create-question-wrapper .container form #questions .tables tbody tr td input {
+  width: 40px;
+  text-align: left;
+  padding: 0;
+}
+
+#create-question-wrapper .container form #questions .tables h3 {
+  padding: 0;
+}
+
+#create-question-wrapper .container form #questions input[type='submit'] {
+  width: 20%;
+}
 /*# sourceMappingURL=question.css.map */

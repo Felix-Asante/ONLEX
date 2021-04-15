@@ -3,10 +3,11 @@ const mysql = require("mysql")
 // DATABASE CONNECTION
 function dbconnection(){
     const DBCONNECTION = mysql.createConnection({
-        host:"localhost",
-        user:"root",
+        host:process.env.DB_HOST,
+        user:process.env.DB_USER,
         password:process.env.DATABASEKEY,
-        database:"Onlex"
+        database:process.env.DB,
+        port:process.env.DB_PORT
     })
     
     DBCONNECTION.connect((err,result)=>{

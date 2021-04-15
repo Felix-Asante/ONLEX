@@ -85,3 +85,92 @@ tbody tr td{
 tbody tr:nth-child(even) {
 	background-color: #fff;
 }
+
+// ! CREATE QUESTION PAGE
+#create-question-wrapper{
+    margin-top: 3rem;
+    position: relative;
+    .container{
+        h3{
+            text-align: center;
+            font-weight: 400;
+            font-size: 2rem;
+            padding: .6rem 0;
+        }
+        form{
+            .question-info{
+                background: $white;
+                box-shadow: 1px 1px 20px #f0f4f5;
+                z-index: 20;
+                // opacity: 1;
+                #question-info{
+                   display: grid;
+                   grid-template-columns: 1fr 1fr;
+                   grid-gap: .5rem;
+                   padding: .8rem 1.8rem;
+                  
+                   button{
+                       grid-column: 2;
+                       width: 40%;
+                       float: right;
+                   }
+                
+                }
+            }
+            input,select{
+                width: 90%;
+            }
+            #questions{
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                z-index: -20;
+                
+                .tables{
+                    height: 60vh;
+                    overflow: scroll;
+                
+                table{
+                    width: 100%;
+                    // border-collapse: collapse;
+                    // height: 90vh;
+                    overflow: scroll;
+                }
+                thead{
+                    tr{
+                        th{
+                            &:first-child{
+                                width: 90%;
+                                // border-right: 2px solid $white;
+                            }
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            // width: 100%;
+                            text-align: left;
+                            
+                            input{
+                                width: 40px;
+                                text-align: left;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+                h3{
+                    padding: 0;
+                }
+            }
+            input[type='submit']{
+                width: 20%;
+            }
+            }
+            
+        }
+    }
+}

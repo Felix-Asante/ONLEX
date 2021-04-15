@@ -13,11 +13,11 @@
     
     <main id="create-new-question-form-wrapper">
         <div class="question-container">
-            <form action="/question/createnewquestion" method="POST">
-                <h3 class="bg-green btn white-text" style="width: 100%; text-align: center; margin-bottom: 30px;">CREEZ UNE NOUVELLE QUESTION</h3>
+            <form action="/question/updatequestion:idiq=<%=idQuestion%>" method="POST">
+                <h3 class="bg-green btn white-text" style="width: 100%; text-align: center; margin-bottom: 30px;">MODIFIE UNE QUESTION</h3>
               <div class="intitule">
                   <label for="intitule">Intitule:</label>
-                  <textarea name="intitule" id="intitule" placeholder="Intitule"></textarea>
+                  <textarea name="intitule" id="intitule" placeholder="Intitule"><%=question[0].intitule%></textarea>
               </div>
               <div class="typederesponse">
                   <label for="typeresponse">Type de response:</label>
@@ -31,11 +31,22 @@
                   <input type="number" name="numberoption" id="numoptions">
               </div>
               <div id="options">
-
+               <%for(let option of options){%>
+              
+                <input type="text" name="" id="" value="<%=option.texte%>">
+                <select name="" id="">
+                    <%if(option.verdict=="True"){%>
+                    <option value="<%=option.verdict%>"><%=option.verdict%></option>
+                    <%}else{%>
+                        <option value="False">False</option>
+                    <%}%>
+                </select>
+               
+                <%}%>
               </div>
               <div class="point">
                   <label for="numpoint">Point: </label>
-                  <input type="number" name="point" id="numpoint" placeholder="numero de point">
+                  <input type="number" name="point" id="numpoint" value="<%=question.point%>">
               </div>
               <input type="submit" value="AJOUTER" class="btn bg-green white-text">
             </form>

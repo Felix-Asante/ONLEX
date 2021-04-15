@@ -68,7 +68,67 @@ router.get("/deletequestion", function(req,res){
     const sql = "DELETE FROM Onlex.Question WHERE idQuestion=?"
     DBCONNECTION.query(sql,req.query.iqid, function(err,data){
         if(err) throw err;
-        res.redirect('question/questionbank')
+        res.redirect('/question/questionbank')
     })
+})
+
+// ! UPDATE UNE QUESTION
+router.get("/updatequestion", function(req,res){
+     let details,options;
+    let sql = "SELECT intitule,point FROM Onlex.Question WHERE idQuestion=?"
+    DBCONNECTION.query(sql,req.query.iqid, function(err,data){
+        if(err) throw err;
+        details = data;
+        console.log("data:",details)
+    })
+    DBCONNECTION.query('SELECT idOption,texte,verdict FROM Onlex.Option WHERE idQuestion=?',req.query.iqid,
+     function(err,option){
+        if(err) throw err;
+        options=option;
+        console.log("option:",options)
+        res.render('updateQuestion',{question:details,options:options,idQuestion:req.query.iqid})
+    })
+})
+
+// ! CREATE QUESTION 
+// * METHOD: GET
+router.get('/createexams', function(req,res){
+    let question;
+
+    DBCONNECTION.query("SELECT idQuestion,intitule,point FROM Onlex.Question", function(err,result){
+        if(err) throw err;
+        console.log(question)
+        question=result;
+
+    })
+    DBCONNECTION.query("SELECT titre,idConcours FROM Onlex.Concours", function(err,concour){
+        if(err) throw err;
+
+        res.render('createQuestion',{questions:question,concours:concour})
+    })
+}) 
+
+// ! CREATE QUESTION: POST
+router.post("/createexams", function(req,res){
+
+    const questionnaire ={idConcours:req.body.concours,dateOuverture:req.body.datedecommence,heureOuverture:req.body.heureDeOuverture,duree:req.body.timedisponible}
+        const hasQuestion={}
+     let sql = 'INSERT INTO Onlex.Questionnaire SET?'
+    DBCONNECTION.query(sql,questionnaire, function(err,questionnaire){
+        if(err) throw err;
+
+        const sql2 = "INSERT INTO Onlex.Questionnaire_has_Question SET ?"
+      
+        for(let i=0; i<req.body.qst.length; i++){
+            hasQuestion.idQuestion=req.body.qst[i];
+            hasQuestion.idQuestionnaire=questionnaire.insertId;
+            DBCONNECTION.query(sql2, hasQuestion, function(err,result){
+                if(err) throw err;
+                console.log(result);
+            })
+        }
+    })
+    res.redirect("/question/createexams")
+    // console.log(req.body)
 })
 module.exports = router;

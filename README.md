@@ -1,12 +1,20 @@
 ## ONLEX(ONLINE EXAMINATION SYSTEM)
 The smart system
-## Pour pouvoir exécuter le projet, vous devez avoir [Node.js](https://nodejs.org/en/download/) installé
+# Pour pouvoir exécuter le projet, vous devez avoir [Node.js](https://nodejs.org/en/download/) et [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)installé
 
-## Getting Started
+# Getting Started
 
-Tous les codes source de l'application se trouvent dans le dossier `MainCodes`\
+Tous les codes source de l'application se trouvent dans le dossier `MainCodes` 
 
-Tout d'abord, installez les modules de projet en exécutant:\
+Tout d'abord, vous devez créer une instance de la base de données sur votre MySQL Workbench avec les détails suivants:\
+
+```
+hostname:mysql-27963-0.cloudclusters.net
+user:Developpers
+port:27963 
+password:JOSUE@le1SAGE**
+```
+Apres, installez les modules de projet en exécutant:\
 `npm i ou npm install`
 
 Vous pouvez maintenant exécuter le serveur de développement:\

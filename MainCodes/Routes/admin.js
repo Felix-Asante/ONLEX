@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs")
 
 let countAnnonce =0;
 let countCandidat=0;
+let countQuestion;
 let reg;
 
 // * DISPLAY ADMIN DASHBOARD
@@ -24,7 +25,12 @@ router.get("/", (req,res)=>{
             console.log(result)
             countCandidat = result[0].count;
         })
-        res.render("adminDashboard",{nbannonce:countAnnonce,test:true,registration:reg,nbcandidat:countCandidat})
+        DBCONNECTION.query("SELECT COUNT(idQuestion) AS count FROM Onlex.Question",(err,result)=>{
+            if(err) throw err;
+            console.log(result)
+            countQuestion = result[0].count;
+        })
+        res.render("adminDashboard",{nbannonce:countAnnonce,test:true,registration:reg,nbcandidat:countCandidat,nbquestion:countQuestion})
 })
 
 // * ADMIN LOGIN PAGE

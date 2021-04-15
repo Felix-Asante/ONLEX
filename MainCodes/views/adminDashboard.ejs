@@ -32,7 +32,7 @@
                     </ul>
 
                 </div>
-                <a href=""><span class="material-icons">
+                <a href="/question/createexams"><span class="material-icons">
                     rtt
                     </span> Create Exams</a>
                 <a href=""><span class="material-icons">
@@ -75,7 +75,7 @@
                 </div>
 
                 <div id="number-of-questions" class="whitebg cards">
-                    <h2 class="dark-color">50</h2>
+                    <h2 class="dark-color"><%=nbquestion%></h2>
                     <p>NUMBER OF QUESTIONS</p>
                 </div>
                 <div id="new-registration" class="whitebg">
@@ -124,11 +124,11 @@
             <form action="/Admin/createannonce" method="POST">
                 <div class="annonce-titre">
                     <label for="">Titre: </label>
-                    <input type="text" name="titre" id="titre" placeholder="Titre" required>
+                    <input type="text" name="titre" id="titre-1" placeholder="Titre" required>
                 </div>
                 <div class="annonce-description">
                     <label for="">description: </label>
-                    <textarea name="description" id="description" required></textarea>
+                    <textarea name="description" id="description-1" required></textarea>
                 </div>
                 <input type="submit" value="VALIDER" id="submit">
             </form>

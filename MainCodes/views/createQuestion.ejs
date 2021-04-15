@@ -1,0 +1,100 @@
+<head>
+    
+    <link rel="icon" type="image/png" href="/img/ONLEX-LOGO.png">
+    <title>ONLEX | CREATE QUESTION</title>
+    <script src="https://kit.fontawesome.com/fc494360f4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <link rel="stylesheet" href="/styles/question.css">
+    <link rel="stylesheet" href="/styles/registration.css">
+</head>
+<body>
+    
+<%-include("./includes/subAdminHeader")%>
+<main id="create-question-wrapper">
+    <div class="container">
+        <form action="/question/createexams" method="POST">
+            <div class="question-info">
+            <h3>Creez un sujet</h3>
+            <div id="question-info">
+                <div class="concours">
+                    <label for="concours">Concours:</label>
+                   
+                     <select name="concours" id="">
+                         <%for(let item of concours){%>
+                            <option value="<%=item.idConcours%>"><%=item.titre%></option>
+                            <%}%>
+                     </select>
+                </div>
+                <div class="date">
+                    <label for="datedecommence">Date Debut:</label>
+                    <input type="date" name="datedecommence" id="datedecommence" required>
+                </div>
+                <div class="time">
+                    <label for="time">Heure Ouverture:</label>
+                    <input type="time" name="heureDeOuverture" id="time" required>
+                </div>
+                <div class="duree">
+                    <label for="duree">Temp disponible</label>
+                    <input type="number" name="timedisponible" id="duree" required>
+                </div>
+                <button class="btn bg-green" id="next">Inserer des questions</button>
+            </div>
+        </div>
+            <div id="questions" class="question-container">
+                <button class="bg-hot-pink btn" id="prev">Precedent</button>
+                <h3>Ajoutez Questions</h3>
+                <div class="tables">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Intitule</th>
+                            <th>Point</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let question of questions){%>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="qst" id="" value='<%=question.idQuestion%>'>
+                                <span><%=question.intitule%></span>
+                            </td>
+                            <td><%=question.point%></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+                <input type="submit" value="ENREGISTRER" class="btn bg-green">
+            </div>
+        </form>
+    </div>
+</main>
+<script>
+const next = document.getElementById('next')
+const prev = document.getElementById('prev')
+const table = document.getElementById('questions')
+const questionDetails = document.querySelector('.question-info')
+
+next.addEventListener("click", function(e){
+    e.preventDefault()
+    table.style.opacity=1
+    table.style.zIndex=70
+    questionDetails.style.opacity=0;
+    questionDetails.zIndex=-20
+})
+
+prev.addEventListener("click", function(e){
+    
+    e.preventDefault()
+    table.style.opacity=0
+    table.style.zIndex=-20
+    questionDetails.style.opacity=1;
+    questionDetails.zIndex=70
+})
+
+</script>
+</body>
