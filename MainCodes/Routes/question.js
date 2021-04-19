@@ -101,7 +101,8 @@ router.get('/createexams', function(req,res){
         question=result;
 
     })
-    DBCONNECTION.query("SELECT titre,idConcours FROM Onlex.Concours", function(err,concour){
+     let sql ="SELECT titre,idConcours FROM Onlex.Concours WHERE idConcours NOT IN( SELECT idConcours FROM Questionnaire)"
+    DBCONNECTION.query(sql, function(err,concour){
         if(err) throw err;
 
         res.render('createQuestion',{questions:question,concours:concour})

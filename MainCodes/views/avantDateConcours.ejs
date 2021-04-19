@@ -1,0 +1,44 @@
+<body>
+    
+    <%-include("./includes/examsHeader")%>
+
+    <!-- ! AVANT DATE CONCOUR -->
+    <%if(test==1){%>
+    <main id="avant-exams">
+        <div class="error-message">
+            <p class="message">Concours non disponible à ce moment</p>
+            <p class="message">Veuillez vous representer à la date ci-dessous:</p>
+            <div class="date-time-info">
+                <p>Date: <%=date%></p>
+                <p>Heure: <%=time%></p>
+            </div>
+        </div>
+        <a href="/" class="btn bg-orange">Retour à l'accuiel</a>
+    </main>
+  <%}else if(test==2){%>
+    <!-- ! APRES DATE CONCOUR -->
+    <main id="avant-exams">
+        <div class="error-message">
+            <p class="message">Concours terminer à la date:</p>
+            <div class="date-time-info">
+                <p>Date: <%=date%></p>
+                <p>Heure: <%=time%></p>
+            </div>
+        </div>
+        <a href="/" class="btn bg-orange">Retour à l'accuiel</a>
+    </main>
+    <%}else{%>
+        <!-- ! respecter date et heure -->
+        <main id="pendant-exams">
+       <p class="message orange-text">Veuillez vous assurez d'avoir lu et bien compris toutes les regles et reglementations regissant ce test. Toute tentative de triche entrainera la déconnexion du systeme.</p>
+         <div id="face-capture">
+
+             <video src="" id="facevideo" muted autoplay width="300px" height="200px" class="<%=idConcours%>"></video>
+         </div>
+        </div>    
+        </main>
+    <%}%>
+    <script defer src="/face-api.min.js"></script>
+    <script defer src="/faceRecognition.js"></script>
+    
+</body>

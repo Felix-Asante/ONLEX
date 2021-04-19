@@ -100,18 +100,18 @@ router.post("/facecapture",function(req,res){
     }
 })
 router.get("/dashboard",checkAuthentication, (req,res)=>{
-    // let candidature,message;
-    // const sql ="SELECT titre FROM Onlex.Candidat JOIN Onlex.Concours USING(idConcours) WHERE Membre_email=?";
-    // DBCONNECTION.query(sql,req.user[0].email,(err,result)=>{
-    //     if(err) throw err;
-    //     console.log(req.user);
-    //     candidature =result;
-    // })
+
       const data="SELECT message,titre FROM Onlex.Notification JOIN  Onlex.Concours USING(idConcours) WHERE email=?"
     DBCONNECTION.query(data,req.user[0].email,(err,result)=>{
         if(err) throw err;
         // message= result;
-        res.render("userDashBoard",{userName:req.user[0].prenom,candidature:result})
+
+
+        DBCONNECTION.query("CALL  ExamNotification(?)",req.user[0].email, function(err,Notification){
+            if(err) throw err;
+         console.log(Notification[0])
+            res.render("userDashBoard",{userName:req.user[0].prenom,candidature:result,notification:Notification[0]})
+        })
 
     })
 

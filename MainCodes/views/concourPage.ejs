@@ -33,7 +33,18 @@
             <h3><%=concours.titre%></h3>
         </div>
     </header>
-    <section id="annonce-layout">
+    <section id="annonce-layout" class="concour-layout">
+        <div class="regle">
+            <h3>Règles regissant le concours</h3>
+            <ul>
+                <li>Au jour de la composition, le candidat devra se présenter au moins cinq (05) minutes avant l’ouverture des questions.</li>
+                <li>Dix (10) minutes après l’ouverture de la composition, aucune connexion ne sera autorisée (acceptée).</li>
+                <li>Le candidat est tenu de laisser sa caméra activée pour permettre au système de « reconnaissance faciale » d’identifier des cas suspects de fraude.</li>
+                <li>Durant tout le temps de composition, le système intelligent procède à une identification ; cela oblige le candidat à ne pas se détourner de la caméra plus de (20) seconds risques de voir sa session bloquée.</li>
+                <li>La détection de deux (02) visages ou plus sur la Caméra, le système interprètera cela comme tentative de fraude.</li>
+                <li>Pendant la composition il n’est pas permis d’ouvrir un nouvel onglet ni de rabattre la fenêtre courante.</li>
+            </ul>
+        </div>
         <p><%=concours.description%></p>
         <a href="/candidature?xml_data_map=<%=concours.idConcours%>" class="btn bg-orange">Candidater</a>
     </section>

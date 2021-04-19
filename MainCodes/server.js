@@ -86,7 +86,7 @@ app.get('/candidature', checkAuthenticated,(req,res)=>{
 app.use("/membre",membre)
 app.use("/Admin",admin)
 app.use("/question",Questions)
-
+app.use("/exams",require("./Routes/exams"))
 //server
 app.listen(PORT , ()=>{
     console.log(`server launched at ${PORT} `);

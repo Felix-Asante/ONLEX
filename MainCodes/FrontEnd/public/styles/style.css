@@ -66,6 +66,10 @@ a {
   color: #63d694;
 }
 
+.red-text {
+  color: #ff4a63;
+}
+
 .hot-pink-text {
   color: #ff4a63;
 }
@@ -578,6 +582,26 @@ input[type="submit"] {
   text-align: center;
 }
 
+#annonce-layout .regle {
+  margin-bottom: 6rem;
+}
+
+#annonce-layout .regle h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+#annonce-layout .regle ul {
+  max-width: 90%;
+  margin: auto;
+}
+
+#annonce-layout .regle ul li {
+  margin: 10px 0;
+  text-align: justify;
+}
+
 #user-dashboard {
   height: 10vh;
 }
@@ -682,5 +706,32 @@ input[type="submit"] {
           box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
   margin-top: 25px;
   overflow: scroll;
+}
+
+#user-dashboard-area .notification .annonce a {
+  color: #63d694;
+  display: block;
+  padding: .5rem 1rem;
+  border-bottom: 1px solid #f0f4f5;
+}
+
+#user-dashboard-area .notification .annonce h3 {
+  text-align: center;
+  font-weight: 300;
+  height: 100%;
+  color: #ff4a00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */

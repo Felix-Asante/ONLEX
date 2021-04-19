@@ -33,7 +33,7 @@
                 <div class="applications">
                     <h3 class="bg-hot-pink">Mes Candidatures</h3>
                     <div class="application-list">
-                        <%if(candidature){%>
+                        <%if(!candidature.length==0){%>
                             <%for(let i=0;i<candidature.length;i++){%>
                                 <%if(candidature[i].message=="Non Acceptée"){%>
                                 <p><%=candidature[i].titre%><span class="bg-hot-pink btn-sm white-text border-sm" style="margin-left: 2rem;"><%=candidature[i].message%></span></p>
@@ -49,7 +49,15 @@
             </div>
             <div class="notification">
                 <p class="hot-pink-text">NOTIFICATION</p>
-                <div class="annonce"></div>
+                <div class="annonce">
+                    <%if(notification.length>0){%>
+                        <%for(let i=0;i<notification.length;i++){%>
+                           <a href="/exams/attempt?attempt_id=<%=notification[i].idConcours%>"><%=notification[i].titre%></a>
+                        <%}%>
+                    <%}else{%>
+                        <h3>Aucune notification</h3>
+                    <%}%>
+                </div>
             </div>
         </div>
     </div>
