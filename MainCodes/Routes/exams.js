@@ -1,5 +1,6 @@
 const DBCONNECTION = require('../DBMODEL/dbConnection')
-const express = require("express")
+const express = require("express");
+const { response } = require('express');
 const router = express.Router()
 
 // ! ATTEMPT EXAMS
@@ -62,22 +63,116 @@ router.get("/fetchfaces", function(req,res){
     })
 })
 
-router.get("/composition", function(req,res){
-    const IDQUESTION =[]
-    const sql = "SELECT idQuestionnaire,idQuestion FROM Questionnaire JOIN Questionnaire_has_Question USING(idQuestionnaire) WHERE idConcours=?"
-    DBCONNECTION.query(sql,req.query.attemptid, function(err,result){
-        if(err) throw err;
+// ! COMPOSITION
+router.get("/composition", async function(req,res){
+   const sql2= "SELECT ParcoursQuestionnaire(?) AS TabQuestion"
+   DBCONNECTION.query(sql2,req.query.attemptid, function(err,question){
+       if(err) throw err;
+       let nombreDeQuestion=question[0].TabQuestion.split("&").length
+       const result=question[0].TabQuestion.split("&")[1].split("/")
+     res.render('ExamsPage',{item:result,concours:req.query.attemptid,page:1,questionLength:nombreDeQuestion,type:result[2]})
+   })
+   
+})
 
-        // ! SELECT IDQUESTION 
-        for(let id of result)
-        {
-            const sql2 = "SELECT idQuestion,typeDeReponse,intitule, texte,verdict FROM Question JOIN Onlex.Option USING(idQuestion)  WHERE Question.idQuestion=? GROUP BY idOption"
-            DBCONNECTION.query(sql2,id.idQuestion, function(err,question){
+//! QUESTION PAGINATION
+router.post("/composition/attempt", function(req,res){
+let idOption,sql;
+let reponse;
+
+    // ! SAUVGRADER LES REPONSE
+    if(req.query.type=="Choix unique"){
+        reponse ={email:req.user[0].email,idQuestion:req.query.idqst,idConcours:req.query.idcm,idOption:req.body.option} 
+         sql ="SELECT verdict,point FROM Onlex.Question JOIN Onlex.Option USING(idQuestion) WHERE idQuestion=? AND idOption=?"
+        DBCONNECTION.query(sql,[req.query.idqst,req.body.option], function(err,result){
+            if(err) throw err;
+            if(result[0].verdict=="True"){
+               reponse.point=result[0].point
+            }
+            else{
+              reponse.point=0
+            }
+            const sql2 ='INSERT INTO Onlex.Reponse SET ?'
+            DBCONNECTION.query(sql2,reponse, function(err,Response){
                 if(err) throw err;
-                console.log(question)
+                console.log("Reponse inserted")
+            })
+        })
+
+    }
+    else{
+        let correctReponse=0;
+        const optionLength = req.body.option.length;
+        reponse ={email:req.user[0].email,idQuestion:req.query.idqst,idConcours:req.query.idcm} 
+        sql ="SELECT verdict,point FROM Onlex.Question JOIN Onlex.Option USING(idQuestion) WHERE idQuestion=? AND idOption=?"
+    
+        if(typeof(req.body.option)=="string")
+        {
+            reponse ={email:req.user[0].email,idQuestion:req.query.idqst,idConcours:req.query.idcm,idOption:req.body.option} 
+            DBCONNECTION.query(sql,[req.query.idqst,req.body.option], function(err,result){
+                if(err) throw err;
+                const sql3 = "SELECT count(idOption) AS count FROM Onlex.Option  WHERE verdict=? AND idQuestion=?"
+
+                DBCONNECTION.query(sql3,['True',req.query.idqst], function(err,count){
+                    if(err) throw err;
+                   console.log("count:",count)
+                   if(result[0].verdict=="True")
+                   {
+                    reponse.point=result[0].point/count[0].count
+                   }
+                   else
+                   {
+                       reponse.point=0
+                   }
+                   const sql2 ='INSERT INTO Onlex.Reponse SET ?'
+                   DBCONNECTION.query(sql2,reponse, function(err,Response){
+                       if(err) throw err;
+                       console.log("Reponse inserted")
+                   })
+                })
             })
         }
-    })
-    res.render("ExamsPage")
-})
+        else{
+
+            for(let id of req.body.option)
+            {
+                reponse.idOption=id
+                DBCONNECTION.query(sql,[req.query.idqst,id], function(err,result){
+                        if(err) throw err;
+                        if(result[0].verdict=="True"){
+                            reponse.point=result[0].point/optionLength
+                        }
+                        else{
+                            reponse.point=0
+    
+                        }
+                        const sql2 ='INSERT INTO Onlex.Reponse SET ?'
+                        DBCONNECTION.query(sql2,reponse, function(err,Response){
+                            if(err) throw err;
+                            console.log("Reponse inserted")
+                        })
+                })
+            }
+        }
+    }
+    console.log(req.query)
+    // ! RENDER PAGE SUIVANT
+    let page = req.query.page;
+   const sql2= "SELECT ParcoursQuestionnaire(?) AS TabQuestion"
+   DBCONNECTION.query(sql2,req.query.idcm, function(err,question){
+       if(err) throw err;
+       let nombreDeQuestion=question[0].TabQuestion.split("&").length
+
+       if(page==nombreDeQuestion-1){
+           res.json("fin")
+       }
+       else{
+
+           page++;
+        
+               const result=question[0].TabQuestion.split("&")[page].split("/")
+             res.render('ExamsPage',{item:result,concours:req.query.idcm,page:page,questionLength:nombreDeQuestion,type:result[2]})
+       }
+   })
+} )
 module.exports=router;

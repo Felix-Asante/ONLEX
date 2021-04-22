@@ -25,56 +25,56 @@
     </header>
     <main id="question-page">
         <div id="question">
+            
             <p class="red-text">***Veuillez essayer de vous conformer a toutes les regles et reglementations regissant ce test. Toute tentative de triche entrainera la deconnexion du systeme.</p>
-            <div class="question whitebg">
-                <p id="idquestion-num">Question 7</p>
-                <h4>What does HTML stands for?</h4>
-                <div class="response">
-                    <input type="radio" name="answer" id="answer" value="HyperText Preprocessor">
-                    <span class="selected"></span>
+                
+            <form action="/exams/composition/attempt?idqst=<%=item[0]%>&idcm=<%=concours%>&type=<%=type%>&page=<%=page%>" method="POST">
+                <div class="question whitebg">
+                    <p id="idquestion-num">Question <%=page%></p>
+                    <h4><%=item[1]%></h4> 
+                    <% for(let j=3 ; j<item.length ; j+=2){%>
+                        <%if(type=="Choix unique"){%>
+                            <div class="response">
+                                <input type="radio" name="option" id="answer" value=<%=item[j]%>>
+                                <span class="selected"></span>
 
-                    <label for="">HyperText Preprocessor</label>
-                </div>
-                <div class="response">
-                    <input type="radio" name="answer" id="answer" value="HyperText marking language">
-                    <span class="selected"></span>
-                    <label for="">HyperText marking language</label>
+                                <label for="option"><%=item[j+1]%></label>
+                            </div>
+                     
+                        <%}else{%>
+                            <div class="response">
+                                <input type="checkbox" name="option" id="answer" value=<%=item[j]%>>
+                                <!-- <span class="selected"></span> -->
 
+                                <label for="option"><%=item[j+1]%></label>
+                            </div>
+                        <%}%>
+                    <%}%> 
+                    <div class="question-controller bgdeepgray">
+                        <button type="submit" class="bggold btn">NEXT</button>
+                    </div>
                 </div>
-                <div class="response">
-                    <input type="radio" name="answer" id="answer" value="HyperText markup language">
-                    <span class="selected"></span>
-                    <label for="">HyperText markup language</label>
-
-                </div>
-                <div class="response">
-                    <input type="radio" name="answer" id="answer" value="xx">
-                    <span class="selected"></span>
-                    <label for="">HyperText makeup language</label>
-                </div>
-               
-                <div class="question-controller bgdeepgray">
-                    <a href="" class="bggold btn">NEXT</a>
-                </div>
-            </div>
+            </form>
         </div>
         <div class="video-question-num">
             <video src="" poster="../icons/face.png"></video>
             <p class="bgdeepgray">QUESTIONS</p>
             <div class="question-tags whitebg">
-                <div class="greenbg">1</div>
-                <div class="greenbg">2</div>
-                <div class="greenbg">3</div>
-                <div class="greenbg">4</div>
-                <div class="greenbg">5</div>
-                <div class="greenbg">6</div>
-                <div class="bglightgray">7</div>
-                <div class="bglightgray">8</div>
-                <div class="bglightgray">9</div>
-                <div class="bglightgray">10</div>
+                <%for(let k=1; k<questionLength;k++){%>
+                    <%if(k<page){%>
+                <div class="greenbg"><%=k%></div>
+                <%}else{%>
+                    <div class="bglightgray"><%=k%></div>
+                    <%}%>
+               <%}%>
             </div>
             <h4>TEMP RESTANT:05:35</h4>
-        </div>
+        </div> 
     </main>
+    <script>
+         function increasePageNumber(pageNumber){
+             pageNumber++;
+         }
+    </script>
 </body>
 </html>
