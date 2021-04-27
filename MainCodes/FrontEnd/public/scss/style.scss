@@ -429,3 +429,29 @@
 		}
 	}
 }
+
+
+// AFFICHE RESULTAT
+#resultat{
+		margin: 3rem auto;
+		/* border: 1px solid #606c72; */
+		border-collapse: collapse;
+		text-align: center;
+		height: 60%;
+		width: calc(100vw - 10%);
+	
+	thead {
+		background-color: #63d694;
+		color: #ffff;
+		height: 40px;
+	}
+	tbody tr {
+		border-bottom: 1px solid #cecece;
+		max-height: 5px;
+		
+		
+	}
+	tbody tr:nth-child(even) {
+		background-color: #fff;
+	}
+}

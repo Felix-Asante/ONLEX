@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="/owlcarousel/owl.theme.default.min.css">
     <link rel="stylesheet" href="/styles/style.css">
+    <!-- <link rel="stylesheet" href="/styles/adminStyle.css"> -->
 </head>
 <body>
     <header id="home-page" class="annonce-header">
@@ -30,25 +31,32 @@
                 </nav>
              </div>
         <div id="concour-titre">
-            <h3><%=concours.titre%></h3>
+            <h3> Resultat de <%=resultat[0].titre%></h3>
         </div>
     </header>
-    <section id="annonce-layout" class="concour-layout">
-        <div class="regle">
-            <h3>Règles regissant le concours</h3>
-            <ul>
-                <li>Au jour de la composition, le candidat devra se présenter au moins cinq (05) minutes avant l’ouverture des questions.</li>
-                <li>Dix (10) minutes après l’ouverture de la composition, aucune connexion ne sera autorisée (acceptée).</li>
-                <li>Le candidat est tenu de laisser sa caméra activée pour permettre au système de « reconnaissance faciale » d’identifier des cas suspects de fraude.</li>
-                <li>Durant tout le temps de composition, le système intelligent procède à une identification ; cela oblige le candidat à ne pas se détourner de la caméra plus de (20) seconds risques de voir sa session bloquée.</li>
-                <li>La détection de deux (02) visages ou plus sur la Caméra, le système interprètera cela comme tentative de fraude.</li>
-                <li>Pendant la composition il n’est pas permis d’ouvrir un nouvel onglet ni de rabattre la fenêtre courante.</li>
-                <li>Assurer vous que l'image de votre face soit suffisament claire au moment de la candidature</li>
-            </ul>
-        </div>
-        <p><%=concours.description%></p>
-        <a href="/candidature?xml_data_map=<%=concours.idConcours%>" class="btn bg-orange">Candidater</a>
-    </section>
+   
+        <table id="resultat">
+            <thead>
+                <tr>
+                    <%for(var item of head){%>
+                    <th><%=item%></th>
+                    <%}%>
+                </tr>
+                
+            </thead>
+            <tbody>
+                
+                    <%for (var result=0; result<resultat.length;result++) {%>
+                        <tr>
+                            <td><%=result+1%></td>
+                            <td><%=resultat[result].nom%></td>
+                            <td><%=resultat[result].prenom%></td>
+                            <td><%=resultat[result].note%></td>
+                        </tr>
+                        <%}%>
+                
+            </tbody>
+        </table>
     <footer id="home-footer">
         <div id="contact-info">
             <h3>Nos Contacts</h3>

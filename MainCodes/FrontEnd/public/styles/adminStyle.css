@@ -406,7 +406,17 @@ button{
 #question-page .video-question-num .question-tags .bglightgray {
 	border: 2px solid #ff4400;
 }
-
+.alert-message{
+	animation: blink 1s linear infinite;
+}
+@keyframes blink{
+	from{
+		transform: scale(1);
+	}
+	to{
+		transform: scale(1.1);
+	}
+}
 /* //option drop down */
 #result-options,
 #question-options,
@@ -522,6 +532,36 @@ tbody tr:nth-child(even) {
 	height: 120px !important;
 	resize: none !important;
 }
+
+/* ! corriger concours */
+#corriger-examen{
+	height: 30vh;
+	width: 70vw;
+	margin: 6rem auto;
+	padding: 1rem 2rem;
+	background: #fff;
+	box-shadow: 1px 1px 20px #f0f4f5;
+}
+#corriger-examen .wrapper{
+	height: 100%;
+}
+#corriger-examen form{
+	display: flex;
+	min-height: 100%;
+	align-items: center;
+	justify-content: center;
+	gap: 25px;
+}
+#corriger-examen form input, #corriger-examen form select{
+	outline: none;
+	padding: 15px;
+	cursor: pointer;
+}
+#corriger-examen form select{
+	width: 50%;
+}
+
+
 
 /* #update-concour{
 	display: block;

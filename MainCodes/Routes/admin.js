@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs")
 let countAnnonce =0;
 let countCandidat=0;
 let countQuestion;
-let reg;
+let reg,resultat;
 
 // * DISPLAY ADMIN DASHBOARD
 
@@ -104,7 +104,7 @@ router.get("/annonce",(req,res)=>{
         if (err) throw err;
         const column = ["No.","Annonce"]
         if(result.length>0){
-        res.render("adminDashboard",{test:false,head:column,data:result,db:"Annonce",id:"",titre:"",description:""})
+        res.render("adminDashboard",{test:false,head:column,data:result,db:"Annonce",id:"",titre:"",description:"",corriger:false,concours:''})
 
         }
     })
@@ -166,7 +166,7 @@ router.get("/update",(req,res)=>{
         DBCONNECTION.query(`SELECT * FROM ${req.query.source} WHERE ${id}=${req.query.itemaccess}`,(err,result)=>{
 
             if(err) throw err;
-            res.render("adminDashboard",{test:false,head:column,data:annonce,db:req.query.source,id:displayId,titre:result[0].titre,description:result[0].description,idConcour:result[0].idAnnonce})
+            res.render("adminDashboard",{test:false,head:column,data:annonce,db:req.query.source,id:displayId,titre:result[0].titre,description:result[0].description,idConcour:result[0].idAnnonce,corriger:false,concours:''})
         })
     }
 
@@ -186,7 +186,7 @@ router.get("/update",(req,res)=>{
      DBCONNECTION.query(`SELECT * FROM ${req.query.source} WHERE ${id}=${req.query.itemaccess}`,(err,result)=>{
 
         if(err) throw err;
-        res.render("adminDashboard",{test:false,head:column,data:annonce,db:req.query.source,id:displayId,result:result[0]})
+        res.render("adminDashboard",{test:false,head:column,data:annonce,db:req.query.source,id:displayId,result:result[0],corriger:false,concours:''})
     })
         
     }
@@ -220,7 +220,7 @@ router.get('/concours', (req,res)=>{
         if (err) throw err;
         const column = ["No.","Titre","Ecole"]
         if(result.length>0){
-        res.render("adminDashboard",{test:false,head:column,data:result,db:"Concours",id:"",titre:"",description:""})
+        res.render("adminDashboard",{test:false,head:column,data:result,db:"Concours",id:"",titre:"",description:"",corriger:false,concours:''})
 
         }
     })
@@ -272,5 +272,54 @@ router.get("/validregistration",(req,res)=>{
         res.redirect("/Admin/")
     })
 })
+
+
+// ! CORRIGE CONCOURS
+router.get("/exams/corrige", (req,res)=>{
+
+    const sql ="SELECT Concours.idConcours,titre,dateOuverture,heureOuverture FROM Onlex.Concours JOIN Onlex.Questionnaire USING(idConcours) WHERE idConcours NOT IN (SELECT idConcours FROM Onlex.Note)"
+
+    // * TIME OUVERTURE
+    const date= new Date()
+    let dateNow,dateTime,HeureActuelle,HeureRelle;
+    const concours =[]
+
+    DBCONNECTION.query(sql, function(err,data){
+        if(err) throw err;
+        
+        for(let i=0; i<data.length;i++)
+        {
+            dateTime = data[i].heureOuverture+":00"
+            dateOuverture = data[i].dateOuverture
+            
+             HeureRelle = new Date(dateTime).getTime()
+             HeureActuelle = new Date().getTime()
+
+            dateNow = date.getFullYear() + "-" + (date.getMonth()+1)+ "-" + date.getDate()
+
+            if(date.getMonth()<10 ){
+                dateNow = date.getFullYear() + "-" + ("0"+(date.getMonth()+1))+ "-" + date.getDate()
+            }
+        
+            if(date.getDate()<10){
+        
+                dateNow = date.getFullYear() + "-" + (date.getMonth()+1)+ "-"+ "0"+date.getDate()
+            }
+            
+            if(date.getDate()<10 && date.getMonth()<10){
+                dateNow = date.getFullYear() + "-" + ("0"+(date.getMonth()+1))+ "-" + "0"+date.getDate()
+            }
+
+            if((dateNow>dateOuverture)){
+                concours.push(data[i])
+            }
+            
+        }
+        res.render("adminDashboard",{test:false,head:'',data:'',db:"",id:"",titre:"",description:"",corriger:true,concours:concours})
+        
+    })
+    
+})
+
 
 module.exports = router;

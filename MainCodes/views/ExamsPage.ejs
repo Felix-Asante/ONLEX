@@ -26,7 +26,7 @@
     <main id="question-page">
         <div id="question">
             
-            <p class="red-text">***Veuillez essayer de vous conformer a toutes les regles et reglementations regissant ce test. Toute tentative de triche entrainera la deconnexion du systeme.</p>
+            <p class="red-text attention">***Veuillez essayer de vous conformer a toutes les regles et reglementations regissant ce test. Toute tentative de triche entrainera la deconnexion du systeme.</p>
                 
             <form action="/exams/composition/attempt?idqst=<%=item[0]%>&idcm=<%=concours%>&type=<%=type%>&page=<%=page%>" method="POST">
                 <div class="question whitebg">
@@ -57,7 +57,9 @@
             </form>
         </div>
         <div class="video-question-num">
-            <video src="" poster="../icons/face.png"></video>
+            <div id="face-capture">
+                <video src="" id="video" width="300px" height="300px" autoplay muted></video>
+            </div>
             <p class="bgdeepgray">QUESTIONS</p>
             <div class="question-tags whitebg">
                 <%for(let k=1; k<questionLength;k++){%>
@@ -71,10 +73,20 @@
             <h4>TEMP RESTANT:05:35</h4>
         </div> 
     </main>
-    <script>
-         function increasePageNumber(pageNumber){
-             pageNumber++;
-         }
-    </script>
+    <script src="/tentative.js"></script>
+    <script defer src="/face-api.min.js"></script>
+    <script defer src="/examsFaceRecognition.js"></script>
+    <style>
+        .face-capture{
+        position: relative;
+    }
+     canvas {
+      position: absolute;
+      z-index: 300;
+      top: 50%;
+      left:85%;
+      transform: translate(-80%,-50%);
+    }
+    </style>
 </body>
 </html>

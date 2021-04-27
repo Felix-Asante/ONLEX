@@ -54,3 +54,14 @@
       }
   }
 }
+
+// ! FIN DU TEST
+#end-of-test{
+    @include displayFlex(column,center,center);
+    height: 70vh;
+    h2{
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        word-spacing:5px ;
+    }
+}

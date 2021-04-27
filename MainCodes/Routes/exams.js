@@ -164,7 +164,7 @@ let reponse;
        let nombreDeQuestion=question[0].TabQuestion.split("&").length
 
        if(page==nombreDeQuestion-1){
-           res.json("fin")
+           res.render("finDuTest")
        }
        else{
 
@@ -175,4 +175,29 @@ let reponse;
        }
    })
 } )
+
+// * EXAMS SESSION BLOQUEE
+router.get("/sessionbloque", function(req,res){
+    res.render('sessionBloque')
+})
+
+// ! CORRIGER CONCOURS
+router.post("/corriger", function(req,res){
+   const sql ='SELECT email,SUM(point) AS note FROM Reponse WHERE idConcours=? GROUP BY email'
+    DBCONNECTION.query(sql,req.body.concour, function(err,data){
+
+        if(err) throw err;
+        else{
+            for(let i=0;i<data.length;i++){
+
+                const sql2 ='INSERT INTO Onlex.Note(idConcours,email,note)VALUES(?,?,?)'
+                DBCONNECTION.query(sql2,[req.body.concour,data[i].email,data[i].note], function(err,note){
+                    if(err) throw err;
+                })
+            }
+
+            res.redirect('/Admin/exams/corrige')
+        }
+    })
+})
 module.exports=router;

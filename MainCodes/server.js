@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname + "/FrontEnd/public/")));
 // app.use(express.static("FrontEnd/public/styles"));
 
 app.get("/",(req,res)=>{
-    let annonce, concour;
+    let annonce, concour,resultat;
     console.log(req.user)
     DBCONNECTION.query("SELECT * FROM Onlex.Annonce", (err,result)=>{
         if(err) throw err;
@@ -74,8 +74,15 @@ app.get("/",(req,res)=>{
 
         concour = result;
 
-        res.render("index",{annonce:annonce,concours:concour})
     })
+    
+    const sql3 = 'SELECT Concours.idConcours,titre FROM Onlex.Concours WHERE idConcours IN(SELECT idConcours FROM Onlex.Note)'
+    DBCONNECTION.query(sql3, function(err,note){
+        if(err) throw err;
+        resultat=note;
+        console.log("res:",resultat)
+        res.render("index",{annonce:annonce,concours:concour,resultat:resultat})
+        })
 })
 
 app.get('/candidature', checkAuthenticated,(req,res)=>{

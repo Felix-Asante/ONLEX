@@ -43,6 +43,8 @@ router.post("/createaccount",async (req,res)=>{
 
         if(err) throw err;
         console.log("New record added...")
+
+        res.redirect("/membre/dashboard")
     })
 })
 
@@ -115,6 +117,16 @@ router.get("/dashboard",checkAuthentication, (req,res)=>{
 
     })
 
+})
+
+// ! affiche resultat
+router.get('/afficheresultat',(req,res)=>{
+    let sql ='SELECT nom,prenom,titre,note FROM Onlex.Membre JOIN Onlex.Note USING(email) JOIN Onlex.Concours USING(idConcours) WHERE Concours.idConcours=?'
+    DBCONNECTION.query(sql,req.query.test, (err,result)=>{
+        if(err) throw err;
+       const head =['No.','nom','prenom','Note']
+       res.render('afficheResultat',{head:head,resultat:result})
+    })
 })
 
 // ! CANDIDATE LOGOUT

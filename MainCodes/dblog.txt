@@ -1,20 +1,51 @@
-<%for(let j=1;j<question.lenght;j++){%>
+ let browserChanged=0;
+        let localValue,storedValue;
+        
 
-                    <%let QUESTION = question[j].split("/")%>
+        window.onload =()=>{
+            storedValue = sessionStorage.getItem('browserChanged')
+
+
+            if(storedValue!==null || storedValue!==undefined){
+                sessionStorage.setItem("browserChanged",--storedValue)
+            }
+            else{
+                sessionStorage.setItem("browserChanged",0)
+
+            }
+        }
+
+        window.addEventListener('blur',()=>{
+            localValue =sessionStorage.getItem('browserChanged')
+            if(localValue!=null){
+                sessionStorage.setItem('browserChanged',++localValue)
+            }
+        })
+        
+        window.addEventListener("visibilitychange", ()=>{
+            
+            if(document.visibilityState=='hidden'){
                 
-                    <p id="idquestion-num">Question <%=j%></p>
-                
-                    <h4><%=QUESTION[1]%></h4>
-                    <%if(QUESTION[2]=='Choix unique'){%>
+                localValue = sessionStorage.getItem('browserChanged')
+                if(localValue===undefined || localValue===null)
+                {
+                    sessionStorage.setItem('browserChanged',0)
                     
-                            <%for(let item=3;item<QUESTION.length;item++){%>
-
-                                <div class="response">
-                                    <input type="radio" name="answer" id="answer" value="<%=question[item]%>">
-                                    <span class="selected"></span>
+                    //  sessionStorage.setItem("alert","Votre session risque d'etre bloquee, Evitez d'ouvrir des nouvelles onglets")
+                    // alertMessage.innerText=sessionStorage.getItem('alert')
+                    // alertMessage.classList.add('alert-message')
+                    
+                    
+                }
+                else{
+                    
+                    sessionStorage.setItem('browserChanged',++localValue)
+                    // sessionStorage.setItem("alert","Votre session risque d'etre bloquee, Evitez d'ouvrir des nouvelles onglets")
+                    // alertMessage.innerText=sessionStorage.getItem('alert')
+                    // alertMessage.classList.add('alert-message')
                 
-                                    <label for=""><%=QUESTION[item]%></label>
-                                </div>
-                            <%}%>
-                    <%}%>
-                <%}%>
+             }
+
+            }
+            
+        })

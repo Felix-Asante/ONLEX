@@ -122,7 +122,7 @@ DELIMITER ;
 DELIMITER |
 CREATE TRIGGER DeleteBeforeQuestionnaire BEFORE DELETE ON Onlex.Questionnaire FOR EACH ROW
 BEGIN
-DELETE FROM Onlex.Reponse WHERE idQuestionnaire = OLD.idQuestionnaire;
+DELETE FROM Onlex.Reponse WHERE idConcours = OLD.idConcours;
 DELETE  FROM Onlex.Questionnaire_has_Question WHERE idQuestionnaire = OLD.idQuestionnaire;
 END |
 DELIMITER ;

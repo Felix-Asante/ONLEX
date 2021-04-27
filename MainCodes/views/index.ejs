@@ -82,6 +82,15 @@
                <% } %>
             </ul>
                 <%}%>
+
+            <%if(resultat){%>
+            <ul>
+                <% for(var i=0; i<resultat.length;i++) {%>
+              <li><a href="/membre/afficheresultat?test=<%=resultat[i].idConcours%>"> Resultat de <%=resultat[i].titre%> est disponible</a></li> 
+               
+               <% } %>
+            </ul>
+                <%}%>
         </div>
     </section>
 
